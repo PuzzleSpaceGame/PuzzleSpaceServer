@@ -1,0 +1,10 @@
+<div>
+  <form method="post">
+    Username: <input name="username" type="text"> <br>
+    Password: <input name="userpass" type="password"> <br>
+    <input type="hidden" name="_csrf_token" value=<%= @csrf %> >
+    <input type="submit" name="login" value="Login" formaction="/login/submit_login">
+    <input type="submit" name="register" value="Register" formaction="/login/submit_register">
+    <br>
+  </form>
+</div>

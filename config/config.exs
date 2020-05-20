@@ -5,11 +5,11 @@
 # is restricted to this project.
 
 # General application configuration
-use Mix.Config
+import Config
 
 config :puzzlespace,
-  ecto_repos: [Puzzlespace.Repo]
-
+  ecto_repos: [Puzzlespace.Repo],
+  puzzle_server_timeout: 1000*60*10
 # Configures the endpoint
 config :puzzlespace, PuzzlespaceWeb.Endpoint,
   url: [host: "localhost"],
@@ -25,6 +25,9 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
+
+
 import_config "#{Mix.env()}.exs"

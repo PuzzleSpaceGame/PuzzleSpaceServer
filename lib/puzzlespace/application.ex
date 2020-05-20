@@ -11,7 +11,8 @@ defmodule Puzzlespace.Application do
       # Start the Ecto repository
       Puzzlespace.Repo,
       # Start the endpoint when the application starts
-      PuzzlespaceWeb.Endpoint
+      PuzzlespaceWeb.Endpoint,
+      Puzzlespace.PuzzleServerDirectory
       # Starts a worker by calling: Puzzlespace.Worker.start_link(arg)
       # {Puzzlespace.Worker, arg},
     ]

@@ -1,77 +1,50 @@
 defmodule Puzzlespace.PuzzleServer do
-  use GenServer , except: [hand_info: 2]
+  alias Puzzlespace.PuzzleLogicServerInterface, as: PLSI
+  alias Puzzlespace.PuzzleServerDirectory, as: SD
+  alias Puzzlespace.SaveSlot
+
+  import Plug.Conn
+  require Logger
+
+  def init(_opts) do
+    %{sd: Puzzlespace.PuzzleServerDirectory,
+      repo: Puzzlespace.Repo
+    }
+  end
   
-  @impl true
-  def init(puzzle) do
-    case puzzle do
-      :bridges -> {:ok, Port.open({:spawn,"bridges_server.exe"},[:binary,{:line,1_000_000}])}
-      :loopy -> {:ok, Port.open({:spawn,"loopy_server.exe"},[:binary,{:line,1_000_000}])}
+  def call(%{private: %{auth_user: user}, params: %{newgame: true, puzzle: puzzle} } = conn, %{sd: sd, repo: repo} = _opts) do
+    conn  
+    |> put_private(:drawlist,new_game(sd,repo,puzzle, saveslotId))
+  end
+  
+  def call(conn,opts) do
+    conn
+  end
+  
+  def new_game(sd,repo,puzzle,saveslotId) do
+    pzs = SD.get_server(sd,puzzle)
+    {drawlist,savedata} = PLSI.puzzle_lifespan(pzs)
+    case repo.get(SaveSlot, saveslotId) do
+      nil -> %SaveSlot{id: saveslotId}
+      other -> other
     end
+    |> SaveSlot.changeset(%{puzzle: puzzle,savedata: savedata})
+    |> repo.insert_or_update() 
+    Logger.info("New #{puzzle} game in slot #{saveslotId}") 
+    drawlist
   end
   
-  @impl true
-  def handle_cast(:new, port) do
-    Port.command(port, "NEW\n") |> IO.inspect
-    {:noreply,port}
-  end
-  
-  @impl true
-  def handle_cast(:kill, port) do
-    Port.command(port, "KILL\n")
-    Port.command(port, :close)
-    {:noreply,port}
+  def load_game(sd,repo,saveslotId) do 
+    saveslot = repo.get(SaveSlot, saveslotId)
+    pzs = SD.get_server(sd,saveslot.puzzle)
+    {drawlist,savedata} = PLSI.puzzle_lifespan(pzs,saveslot.savedata)
+    SaveSlot.changeset(saveslot,%{savedata: savedata})
+    |> repo.insert_or_update()
+    Logger.info("Load #{saveslot.puzzle} game in slot #{saveslotId}")
+    drawlist
   end
 
-  @impl true 
-  def handle_cast({:input,x,y,button}, port) do
-    Port.command(port,"INPUT\n")
-    Port.command(port,"x: #{x}, y: #{y}, button: #{button}\n")
-    {:noreply,port}
+  def available_slot(user,_puzzle) do
+    1
   end
-
-  @impl true
-  def handle_cast({:load,savegame},port) do
-    Port.command(port, "LOAD\n")
-    Port.command(port, savegame)
-    {:noreply,port}
-  end
-
-  @impl true
-  def handle_call(:draw,_from,port) do
-    catcher = Task.async(fn -> 
-      data1 = receive do 
-        {:data, data} -> data 
-      end
-      data2 = receive do
-        {:data, data} -> data
-      end
-      {data1,data2}
-    end)
-    send(port,{self(), {:connect,catcher.pid}})
-    send(port,{catcher.pid,{:command, "DRAW\n"}})
-    result = Task.await(catcher)
-    send(port,{catcher.pid,{:connect,self()}})
-    {:reply, result, port}
-  end
-  
-  @impl true
-  def handle_call(:save,_from,port) do
-    catcher = Task.async(fn -> receive do {:data, data} -> data end end)
-    send(port,{self(), {:connect,catcher.pid}})
-    send(port,{catcher.pid,{:command, "SAVE\n"}})
-    result = Task.await(catcher)
-    send(port,{catcher.pid,{:connect,self()}})
-    {:reply, result, port}
-  end
-  
-  @impl true
-  def handle_info({:data,data},port) do
-    case data do
-      "SAVEFILE" <> _rest -> send(self(),{:savedata,data})
-      "size" <> _rest -> send(self(),{:sizedata,data})
-      "start_draw" <> _rest -> send(self(),{:drawdata})
-    end
-    {:noreply, port}
-  end
-
 end

@@ -65,6 +65,38 @@ defmodule PuzzlespaceWeb.PageController do
         |> redirect(to: "/")
     end
   end
+
+  def logout_many(conn, %{"signout_some" => "Signout Selected","tokens" = tokens} = params) do
+    tokens
+    |> Enum.map(fn token -> 
+      PuzzlespaceWeb.Authentication.logout(token)
+    end)
+    case Enum.any?(tokens, fn token -> token == get_session(conn,:user_token) end) do
+      true ->
+        conn
+        |> delete_session(:user_token)
+        |> put_flash(:info, "See you, space cowboy")
+        |> redirect(to: "/")
+      false -> conn |> put_flash(:info, "Selected sessions ended") |> redirect(to: "/")
+    end
+  end
+
+  def logout_many(conn, %{"signout_all" => _}) do
+    Puzzlespace.AuthToken.list_tokens(conn.assigns[:auth_uid])
+    |> Enum.map(fn token -> 
+      PuzzlespaceWeb.Authentication.logout(token)
+    end)
+    conn
+    |> delete_session(:user_token)
+    |> put_flash(:info, "All sessions ended")
+    |> put_flash(:info, "See you, space cowboy")
+    |> redirect(to: "/")
+  end
+
+  def list_sessions(conn, _params) do
+    tokens = Puzzlespace.AuthToken.list_tokens(conn.assigns[:auth_uid])
+    render(conn, "listsessions.html", csrf: Plug.CSRFProtection.get_csrf_token(),tokens: tokens)
+  end
   
   def list_saves(conn,_params) do
     {:ok, user} = User.from_id(conn.assigns[:auth_uid])

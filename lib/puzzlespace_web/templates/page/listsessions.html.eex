@@ -1,0 +1,21 @@
+<h1> Your Active Sessions </h1>
+
+<form action="/logout" method="post">
+  <input type="hidden" name="_csrf_token" value="<%= @csrf %>">
+  <table>
+    <tr>
+      <th> Revoke? </th>
+      <th> Created </th>
+      <th> Last Renewed </th>
+    </tr>
+  <%= for token <- @tokens do %> 
+      <tr>
+        <td> <input type="checkbox" name="tokens[]" value="<%= token.token%>"> </td>
+        <td><%= token.inserted_at %></td>
+        <td><%= token.updated_at %></td>
+      </tr>
+    <% end %>
+  </table>
+  <input type="submit" value="Signout Selected" name="signout_some">
+  <input type="submit" value="Signout All" name="signout_all">
+</form>

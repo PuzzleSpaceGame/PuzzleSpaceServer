@@ -3,14 +3,15 @@ defmodule Puzzlespace.User do
   import Ecto.Changeset
   alias Puzzlespace.User
   alias Puzzlespace.Entity
-  
+  alias Puzzlespace.AuthToken
+
   schema "users" do
     field :username, :string, unique: true
     field :hashed_pass, :string
     field :userpass, :string, virtual: true
 
     belongs_to :user_entity, Entity, foreign_key: :entity_id
-
+    has_many :auth_tokens, AuthToken
     timestamps()
   end
 

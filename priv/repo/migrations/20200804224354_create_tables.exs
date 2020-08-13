@@ -18,7 +18,7 @@ defmodule Puzzlespace.Repo.Migrations.CreateTables do
   
     create table(:authtokens) do
       add :token, :string
-      add :userid, :binary_id
+      add :user_id, references(:users)
       timestamps()
     end
   

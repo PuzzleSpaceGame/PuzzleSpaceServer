@@ -7,6 +7,7 @@
 <script>
   const canvas = document.getElementById("game");
    function draw_game(detail){
+     console.log(window.auth_token)
      let drawing_api = detail.dpi
      let interaction_handler = detail.ih
      let instructions = document.getElementById("instructions").textContent;

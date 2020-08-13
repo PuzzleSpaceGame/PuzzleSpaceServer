@@ -23,6 +23,8 @@ defmodule PuzzlespaceWeb.Router do
     get "/login", PageController, :login_page
     post "/login/submit_login", PageController, :login_user
     post "/login/submit_register", PageController, :register_user
+    get "/logout/list", PageController, :list_sessions
+    post "/logout", PageController, :logout_many
     get "/logout", PageController, :logout
     get "/", PageController, :index
   end

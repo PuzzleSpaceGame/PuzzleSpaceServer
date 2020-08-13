@@ -9,9 +9,13 @@ import css from "../css/app.css"
 //
 // Import dependencies
 //
-import "phoenix_html"
+// import "phoenix_html"
 
 // Import local files
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
+import drawing_api from "./puzzle_rendering_engine"
+import interaction_handler from "./puzzle_interaction_engine"
+const event = new CustomEvent("imports_complete", {detail: {dpi:drawing_api,ih:interaction_handler}})
+document.dispatchEvent(event)

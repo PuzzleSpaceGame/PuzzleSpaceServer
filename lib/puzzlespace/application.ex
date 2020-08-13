@@ -12,7 +12,8 @@ defmodule Puzzlespace.Application do
       Puzzlespace.Repo,
       # Start the endpoint when the application starts
       PuzzlespaceWeb.Endpoint,
-      Puzzlespace.PuzzleServerDirectory
+      STPuzzleCoordinator,
+      Puzzlespace.SessionHandler,
       # Starts a worker by calling: Puzzlespace.Worker.start_link(arg)
       # {Puzzlespace.Worker, arg},
     ]

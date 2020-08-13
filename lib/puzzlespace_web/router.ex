@@ -7,15 +7,14 @@ defmodule PuzzlespaceWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug PuzzlespaceWeb.Authentication
-  end
-
-  pipeline :puzzle do
-    plug Puzzlespace.PuzzleServer
+    plug PuzzlespaceWeb.SessionPlug
   end
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :protect_from_forgery
+    plug PuzzlespaceWeb.SessionPlug
   end
 
   scope "/", PuzzlespaceWeb do
@@ -32,15 +31,20 @@ defmodule PuzzlespaceWeb.Router do
     pipe_through :browser
     get "/msg/:messenger", TestController, :show
     get "/debug", TestController, :debug
-    post "/login", TestController, :login_form
-    get "/login", TestController, :login_page 
     get "/", TestController, :index
   end
 
   scope "/puzzle", PuzzlespaceWeb do
     pipe_through :browser
-    pipe_through :puzzle
-    get "/", PuzzleController, :choose_puzzle 
+    get "/saves", PageController, :list_saves
+    post "/new_save", PageController, :new_save
+    post "/load", PageController, :load_save
+    post "/newgame", PageController, :newgame
+  end
+
+  scope "/puzzleapi", PuzzlespaceWeb do
+    pipe_through :api
+    post "/update", PageController, :update
   end
     # Other scopes may use custom stacks.
   # scope "/api", PuzzlespaceWeb do

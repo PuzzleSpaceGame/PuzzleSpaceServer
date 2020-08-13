@@ -12,18 +12,23 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-          </ul>
+            <li>
+              <%= case  Puzzlespace.User.from_id(@conn.assigns[:auth_uid]) do %>
+                <% {:error, _} -> %> <a href="/login">Login or Register</a>
+                  <% {:ok, x} -> %> Logged in as <%= x.username %> 
+              <% end %>
+            </li>
+            </ul>
         </nav>
-        <a href="http://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
+        <a href="/" class="phx-logo">
+          <img src="<%= Routes.static_path(@conn, "/images/puzzlespace.png") %>" alt="Puzzlespace Logo"/>
         </a>
       </section>
     </header>
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <%= render @view_module, @view_template, assigns %>
+      <%= @inner_content %>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>

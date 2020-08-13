@@ -1,0 +1,21 @@
+<h1 id="game_status"></h1>
+<canvas id="game"></canvas>
+<div id="instructions" style="display: none"><%= @draw %></div>
+<div id="csrf" style="display: none"><%= @csrf %></div>
+<div id="slotid" style="display: none"><%= @slotid %></div>
+<div id="colours" style="display: none"><%= @colours %></div>
+<script>
+  const canvas = document.getElementById("game");
+   function draw_game(detail){
+     let drawing_api = detail.dpi
+     let interaction_handler = detail.ih
+     let instructions = document.getElementById("instructions").textContent;
+     instructions = JSON.parse(instructions);
+     console.log(drawing_api)
+     let drawapi = new drawing_api(canvas);
+     drawapi.dispatch(instructions);
+     let interface = new interaction_handler(canvas);
+   }
+  document.addEventListener("imports_complete",x => draw_game(x.detail))
+ 
+ </script>

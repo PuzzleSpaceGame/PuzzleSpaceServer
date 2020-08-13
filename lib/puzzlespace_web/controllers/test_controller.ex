@@ -15,12 +15,4 @@ defmodule PuzzlespaceWeb.TestController do
     text(conn, StringIO.flush(pid))
   end
 
-  def login_page(conn, _params) do
-    render(conn, "login.html", csrf: Plug.CSRFProtection.get_csrf_token())
-  end
-  
-  def login_form(conn, %{"username"=> username,"userpass" => pass}) do
-    text(conn, "#{username} ---> #{pass}")
-  end
-
 end

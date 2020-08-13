@@ -1,8 +1,8 @@
-defmodule PuzzlespaceWeb.UserSocket do
+defmodule PuzzlespaceWeb.PuzzleSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", PuzzlespaceWeb.RoomChannel
+  channel "stpuzz:*", PuzzlespaceWeb.STPuzzChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After

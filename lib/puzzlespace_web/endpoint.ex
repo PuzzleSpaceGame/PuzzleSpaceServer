@@ -1,7 +1,7 @@
 defmodule PuzzlespaceWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :puzzlespace
 
-  socket "/socket", PuzzlespaceWeb.UserSocket,
+  socket "/puzzlesocket", PuzzlespaceWeb.PuzzleSocket,
     websocket: true,
     longpoll: false
 

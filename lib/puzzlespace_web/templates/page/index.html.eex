@@ -1,35 +1,23 @@
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
+  <h1>Welcome to Puzzlespace!</h1>
+  <p>A game that exists pretty much purely as a tech demo</p>
 </section>
 
 <section class="row">
   <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">v1.4 Changelog</a>
-      </li>
-    </ul>
+    <h2>About Puzzlespace</h2>
+    <p> Puzzlespace is a puzzle site created as an excercise in full-stack development. The website itself
+      is written in a usual html-css-javascript frontend stack, but the interesting bit is the backend. The
+      webserver itself is running in Elixir, a wonderful language built on top of Erlang, and uses a PostgreSQL
+      database for intransient storage. The puzzles themselves, however, are operating as RPC servers, which
+      consist of a message passing "frontend" for Simon Tatham Portable Puzzle Collection,
+      written in C. The RPC calls are coordinated through RabbitMQ.
   </article>
   <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-    </ul>
+    <h2>About Me</h2>
+    <p> My name is James Crocker, and I am a software developer living in Fremont, California. I
+      enjoy learning new things and applying them to interesting problems. I recently graduated from
+      Loyola Marymount University in Los Angeles, where I studied Engineering Physics and Computer Science.
+    </p>
   </article>
 </section>

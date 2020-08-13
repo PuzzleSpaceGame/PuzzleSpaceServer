@@ -1,0 +1,75 @@
+<h1> Choose A Puzzle to Play! </h1>
+<form action="/puzzle/newgame" method="post" id="form">
+  <input type="hidden" name="_csrf_token" value=<%= @csrf %>>
+  <input type="hidden" name="slotid" value=<%=@slotid %>>
+  <select name="puzzle" id="puzzles" oninput="showopts()">
+      <option value="null" selected>Select A Puzzle</option>
+    <%= for puzzle <- @puzzles do %>
+      <option value="<%= puzzle %>"><%= puzzle %></option>
+    <% end %>
+  </select>
+  <div id="options"></div>
+  <br>
+  <input id="play" type="hidden" value="Play">
+</form>
+ <script>
+   const cfgstring = (`<%=raw @configs %>`)
+   console.log(cfgstring);
+   const configs = JSON.parse(cfgstring)["configs"];
+   function showopts(){
+     document.getElementById("play").type = "hidden";
+     choice = configs[document.getElementById("puzzles").value];
+     form = document.getElementById("options");
+     form.innerHTML = '';
+     Object.entries(choice).sort(function(a,b){
+      let [la,ca] = a
+      let [lb,cb] = b
+      return ca.idx - cb.idx
+     }).map(function(x){
+       let [label,content] = x;
+       if(content.type == "choices"){
+         let out = document.createElement("select");
+         out.id = label;
+         out.name = label;
+         let name = document.createElement("label");
+         name.innerHTML = label
+         name.for = label
+         console.log(content.choices.map(x => x))
+         let options = content.choices.map(function(x){
+          let child = document.createElement("option");
+          child.value = x;
+          child.innerHTML = x;
+          if(content.default == x){
+            child.selected = true;
+          }
+          return child
+         }).forEach(function(x){out.appendChild(x)})
+         return [name,out];
+       }
+       if(content.type == "string"){
+         let out = document.createElement("input");
+         out.type = "text";
+         out.value = content.default;
+         out.id = label;
+         out.name = label;
+         let name = document.createElement("label");
+         name.innerHTML = label
+         name.for = label
+         return [name,out]
+       }
+       if(content.type == "boolean"){
+         let out = document.createElement("input");
+         out.type = "checkbox";
+         out.value = content.default
+         out.id = label
+         out.name = label
+         let name = document.createElement("label");
+         name.innerHTML = label
+         name.for = label
+         return [name,out];
+      }
+     }).flat().forEach(function(x){form.appendChild(x)})
+     document.getElementById("play").type = "submit";
+
+   }
+ </script>

@@ -1,295 +1,361 @@
-2020-08-07 01:16:51.967 [error] <0.2580.0> CRASH REPORT Process <0.2580.0> with 0 neighbours exited with reason: {{{{#{'__exception__' => true,'__struct__' => 'Elixir.Phoenix.Router.NoRouteError',conn => #{'__struct__' => 'Elixir.Plug.Conn',adapter => {'Elixir.Plug.Cowboy.Conn',#{bindings => #{},body_length => 0,cert => undefined,has_body => false,headers => #{<<"accept">> => <<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>,<<"accept-encoding">> => <<"gzip, deflate">>,<<"accept-language">> => <<"en-US,en;q=0.5">>,<<"connection">> => <<"keep-alive">>,<<"cookie">> => <<...>>,...},...}},...},...},...},...},...},...}
-2020-08-07 01:16:51.968 [error] <0.2580.0> Cowboy stream 1 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.2579.0> had its request process exit with reason: {{{#{'__exception__' => true,'__struct__' => 'Elixir.Phoenix.Router.NoRouteError',conn => #{'__struct__' => 'Elixir.Plug.Conn',adapter => {'Elixir.Plug.Cowboy.Conn',#{bindings => #{},body_length => 0,cert => undefined,has_body => false,headers => #{<<"accept">> => <<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>,<<"accept-encoding">> => <<"gzip, deflate">>,<<"accept-language">> => <<"en-US,en;q=0.5">>,<<"connection">> => <<"keep-alive">>,<<"cookie">> => <<"...">>,...},...}},...},...},...},...},...}
-2020-08-07 20:08:36.431 [error] <0.3964.0> CRASH REPORT Process <0.3964.0> with 0 neighbours exited with reason: {{{{#{'__exception__' => true,'__struct__' => 'Elixir.Plug.CSRFProtection.InvalidCSRFTokenError',message => <<"invalid CSRF (Cross Site Request Forgery) token, please make sure that:\n\n  * The session cookie is being sent and session is loaded\n  * The request include a valid '_csrf_token' param or 'x-csrf-token' header">>,plug_status => 403},[{'Elixir.Plug.CSRFProtection',call,2,[{file,"lib/plug/csrf_protection.ex"},{line,309}]},{'Elixir.PuzzlespaceWeb.Router',api,2,[]},{'Elixir.PuzzlespaceWeb.Router',...},...]},...},...},...}
-2020-08-07 20:08:36.431 [error] <0.3964.0> Cowboy stream 15 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.3877.0> had its request process exit with reason: {{{#{'__exception__' => true,'__struct__' => 'Elixir.Plug.CSRFProtection.InvalidCSRFTokenError',message => <<"invalid CSRF (Cross Site Request Forgery) token, please make sure that:\n\n  * The session cookie is being sent and session is loaded\n  * The request include a valid '_csrf_token' param or 'x-csrf-token' header">>,plug_status => 403},[{'Elixir.Plug.CSRFProtection',call,2,[{file,"lib/plug/csrf_protection.ex"},{line,309}]},{'Elixir.PuzzlespaceWeb.Router',api,2,[]},{'Elixir.PuzzlespaceWeb.Router',...},...]},...},...}
-2020-08-07 20:10:18.543 [error] <0.3994.0> CRASH REPORT Process <0.3994.0> with 0 neighbours exited with reason: {{{{#{'__exception__' => true,'__struct__' => 'Elixir.RuntimeError',message => <<"expected action/2 to return a Plug.Conn, all plugs must receive a connection (conn) and return a connection, got: %{\"user_input\" => [%{\"buttons\" => [\"M0\"], \"mouse\" => \"DOWN\", \"pos_x\" => 24, \"pos_y\" => 23}, %{\"buttons\" => [\"M1\"], \"mouse\" => \"DRAG\", \"pos_x\" => 45, \"pos_y\" => 22}, %{\"buttons\" => [\"M1\"], \"mouse\" => \"DRAG\", \"pos_x\" => 123, \"pos_y\" => 24}, %{\"buttons\" => [\"M1\"], \"mouse\" => \"DRAG\", \"pos_x\" => 130, ...">>},...},...},...},...}
-2020-08-07 20:10:18.544 [error] <0.3994.0> Cowboy stream 6 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.3969.0> had its request process exit with reason: {{{#{'__exception__' => true,'__struct__' => 'Elixir.RuntimeError',message => <<"expected action/2 to return a Plug.Conn, all plugs must receive a connection (conn) and return a connection, got: %{\"user_input\" => [%{\"buttons\" => [\"M0\"], \"mouse\" => \"DOWN\", \"pos_x\" => 24, \"pos_y\" => 23}, %{\"buttons\" => [\"M1\"], \"mouse\" => \"DRAG\", \"pos_x\" => 45, \"pos_y\" => 22}, %{\"buttons\" => [\"M1\"], \"mouse\" => \"DRAG\", \"pos_x\" => 123, \"pos_y\" => 24}, %{\"buttons\" => [\"M1\"], \"mouse\" => \"DRAG\", \"pos_x\" => 130, \"p...">>},...},...},...}
-2020-08-07 20:11:30.883 [error] <0.3998.0> CRASH REPORT Process <0.3998.0> with 0 neighbours exited with reason: {{{{#{'__exception__' => true,'__struct__' => 'Elixir.RuntimeError',message => <<"expected action/2 to return a Plug.Conn, all plugs must receive a connection (conn) and return a connection, got: %{\"user_input\" => [%{\"buttons\" => [\"Alt\"], \"pos_x\" => 15, \"pos_y\" => 60}]}">>},[{'Elixir.PuzzlespaceWeb.PageController',phoenix_controller_pipeline,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,1}]},{'Elixir.Phoenix.Router','__call__',2,[{file,"lib/phoenix/router..."},...]},...]},...},...},...}
-2020-08-07 20:11:30.883 [error] <0.3998.0> Cowboy stream 1 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.3997.0> had its request process exit with reason: {{{#{'__exception__' => true,'__struct__' => 'Elixir.RuntimeError',message => <<"expected action/2 to return a Plug.Conn, all plugs must receive a connection (conn) and return a connection, got: %{\"user_input\" => [%{\"buttons\" => [\"Alt\"], \"pos_x\" => 15, \"pos_y\" => 60}]}">>},[{'Elixir.PuzzlespaceWeb.PageController',phoenix_controller_pipeline,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,1}]},{'Elixir.Phoenix.Router','__call__',2,[{file,"lib/phoenix/router.e..."},...]},...]},...},...}
-2020-08-07 20:11:33.706 [error] <0.4000.0> CRASH REPORT Process <0.4000.0> with 0 neighbours exited with reason: {{{{#{'__exception__' => true,'__struct__' => 'Elixir.RuntimeError',message => <<"expected action/2 to return a Plug.Conn, all plugs must receive a connection (conn) and return a connection, got: %{\"user_input\" => [%{\"buttons\" => [\"Alt\"], \"pos_x\" => 15, \"pos_y\" => 60}]}">>},[{'Elixir.PuzzlespaceWeb.PageController',phoenix_controller_pipeline,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,1}]},{'Elixir.Phoenix.Router','__call__',2,[{file,"lib/phoenix/router..."},...]},...]},...},...},...}
-2020-08-07 20:11:33.708 [error] <0.4000.0> Cowboy stream 2 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.3997.0> had its request process exit with reason: {{{#{'__exception__' => true,'__struct__' => 'Elixir.RuntimeError',message => <<"expected action/2 to return a Plug.Conn, all plugs must receive a connection (conn) and return a connection, got: %{\"user_input\" => [%{\"buttons\" => [\"Alt\"], \"pos_x\" => 15, \"pos_y\" => 60}]}">>},[{'Elixir.PuzzlespaceWeb.PageController',phoenix_controller_pipeline,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,1}]},{'Elixir.Phoenix.Router','__call__',2,[{file,"lib/phoenix/router.e..."},...]},...]},...},...}
-2020-08-07 20:11:39.444 [error] <0.4002.0> CRASH REPORT Process <0.4002.0> with 0 neighbours exited with reason: {{{{#{'__exception__' => true,'__struct__' => 'Elixir.RuntimeError',message => <<"expected action/2 to return a Plug.Conn, all plugs must receive a connection (conn) and return a connection, got: %{\"user_input\" => [%{\"buttons\" => [\"Alt\"], \"pos_x\" => 15, \"pos_y\" => 60}]}">>},[{'Elixir.PuzzlespaceWeb.PageController',phoenix_controller_pipeline,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,1}]},{'Elixir.Phoenix.Router','__call__',2,[{file,"lib/phoenix/router..."},...]},...]},...},...},...}
-2020-08-07 20:11:39.446 [error] <0.4002.0> Cowboy stream 3 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.3997.0> had its request process exit with reason: {{{#{'__exception__' => true,'__struct__' => 'Elixir.RuntimeError',message => <<"expected action/2 to return a Plug.Conn, all plugs must receive a connection (conn) and return a connection, got: %{\"user_input\" => [%{\"buttons\" => [\"Alt\"], \"pos_x\" => 15, \"pos_y\" => 60}]}">>},[{'Elixir.PuzzlespaceWeb.PageController',phoenix_controller_pipeline,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,1}]},{'Elixir.Phoenix.Router','__call__',2,[{file,"lib/phoenix/router.e..."},...]},...]},...},...}
-2020-08-07 22:50:36.712 [warning] <0.294.0> Unexpected error_logger event {error_msg,<0.439.0>,{<0.4493.0>,[42,42,32,84,97,115,107,32,126,112,32,116,101,114,109,105,110,97,116,105,110,103,126,110,42,42,32,83,116,97,114,116,101,100,32,102,114,111,109,32,126,112,126,110,42,42,32,87,104,101,110,32,102,117,110,99,116,105,111,110,32,32,61,61,32,126,112,126,110,42,42,32,32,32,32,32,32,97,114,103,117,109,101,110,116,115,32,61,61,32,126,112,126,110,42,42,32,82,101,97,115,111,110,32,102,111,114,32,116,101,114,109,105,110,97,116,105,111,110,32,61,61,32,126,110,42,42,32,126,112,126,110],[<0.4493.0>,bridges,#Fun<Elixir.RPCCoordinator.RPCHandler.0.55376292>,[],{{badfun,#Fun<Elixir.STPuzzleCoordinator.1.103840674>},[{'Elixir.RPCCoordinator.RPCHandler','-handle_cast/2-fun-0-',6,[{file,[108,105,98,47,112,117,122,122,108,101,115,112,97,99,101,47,112,117,122,122,108,101,115,47,115,116,112,117,122,122,108,101,47,114,95,112,95,99,95,99,111,111,114,100,105,110,97,116,111,114,46,101,120]},{line,76}]},{'Elixir.Task.Supervised',invoke_mfa,2,[{file,[108,105,98,47,116,97,115,107,47,115,117,112,101,114,118,105,115,101,100,46,101,120]},{line,90}]},{proc_lib,init_p_do_apply,3,[{file,[112,114,111,99,95,108,105,98,46,101,114,108]},{line,249}]}]}]}}
-2020-08-07 22:50:36.793 [error] <0.4493.0>@Elixir.RPCCoordinator.RPCHandler:-handle_cast/2-fun-0-:76 CRASH REPORT Process <0.4493.0> with 0 neighbours crashed with reason: bad function #Fun<Elixir.STPuzzleCoordinator.1.103840674> in 'Elixir.RPCCoordinator.RPCHandler':'-handle_cast/2-fun-0-'/6 line 76
-2020-08-07 22:50:36.793 [error] <0.601.0>@Elixir.RPCCoordinator.RPCHandler:-handle_cast/2-fun-0-:76 Supervisor {<0.601.0>,'Elixir.Task.Supervisor'} had child undefined started with {'Elixir.Task.Supervised',start_link,undefined} at <0.4493.0> exit with reason bad function #Fun<Elixir.STPuzzleCoordinator.1.103840674> in 'Elixir.RPCCoordinator.RPCHandler':'-handle_cast/2-fun-0-'/6 line 76 in context child_terminated
-2020-08-07 22:51:54.048 [info] <0.44.0> Application lager started on node nonode@nohost
-2020-08-07 22:51:54.251 [info] <0.44.0> Application xmerl started on node nonode@nohost
-2020-08-07 22:51:54.661 [info] <0.44.0> Application sasl started on node nonode@nohost
-2020-08-07 22:51:54.820 [info] <0.44.0> Application tools started on node nonode@nohost
-2020-08-07 22:51:54.955 [info] <0.44.0> Application jsx started on node nonode@nohost
-2020-08-07 22:51:55.184 [info] <0.44.0> Application ranch started on node nonode@nohost
-2020-08-07 22:51:55.264 [info] <0.44.0> Application recon started on node nonode@nohost
-2020-08-07 22:51:56.185 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
-2020-08-07 22:51:56.185 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
-2020-08-07 22:51:56.339 [info] <0.44.0> Application amqp_client started on node nonode@nohost
-2020-08-07 22:51:56.418 [info] <0.44.0> Application amqp started on node nonode@nohost
-2020-08-07 22:51:56.546 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
-2020-08-07 22:51:56.769 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
-2020-08-07 22:51:56.897 [info] <0.44.0> Application jason started on node nonode@nohost
-2020-08-07 22:51:57.034 [info] <0.44.0> Application comeonin started on node nonode@nohost
-2020-08-07 22:51:57.035 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
-2020-08-07 22:51:57.175 [info] <0.44.0> Application connection started on node nonode@nohost
-2020-08-07 22:51:57.267 [info] <0.44.0> Application decimal started on node nonode@nohost
-2020-08-07 22:51:57.442 [info] <0.44.0> Application db_connection started on node nonode@nohost
-2020-08-07 22:51:57.722 [info] <0.44.0> Application postgrex started on node nonode@nohost
-2020-08-07 22:51:57.880 [info] <0.44.0> Application ecto started on node nonode@nohost
-2020-08-07 22:51:57.936 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
-2020-08-07 22:51:57.974 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
-2020-08-07 22:51:58.175 [info] <0.44.0> Application cowlib started on node nonode@nohost
-2020-08-07 22:51:58.297 [info] <0.44.0> Application cowboy started on node nonode@nohost
-2020-08-07 22:51:58.322 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
-2020-08-07 22:51:58.481 [info] <0.44.0> Application file_system started on node nonode@nohost
-2020-08-07 22:51:59.138 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
-2020-08-07 22:51:59.286 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
-2020-08-07 22:51:59.361 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
-2020-08-07 22:51:59.409 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
-2020-08-07 22:52:08.627 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
-2020-08-07 22:52:29.051 [error] <0.636.0> CRASH REPORT Process <0.636.0> with 0 neighbours exited with reason: {{{{#{'__exception__' => true,'__struct__' => 'Elixir.CaseClauseError',term => <<"M0">>},[{'Elixir.STPuzzleCoordinator',move_desc_to_tuple,1,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,75}]},{'Elixir.Enum','-map/2-lists^map/1-0-',2,[{file,"lib/enum.ex"},{line,1396}]},{'Elixir.STPuzzleCoordinator',update,3,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,64}]},{'Elixir.Puzzlespace.Puzzles',update,3,[{file,"lib/puzzlespace/puzzles/pu..."},...]},...]},...},...},...}
-2020-08-07 22:52:29.115 [error] <0.636.0> Cowboy stream 7 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.606.0> had its request process exit with reason: {{{#{'__exception__' => true,'__struct__' => 'Elixir.CaseClauseError',term => <<"M0">>},[{'Elixir.STPuzzleCoordinator',move_desc_to_tuple,1,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,75}]},{'Elixir.Enum','-map/2-lists^map/1-0-',2,[{file,"lib/enum.ex"},{line,1396}]},{'Elixir.STPuzzleCoordinator',update,3,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,64}]},{'Elixir.Puzzlespace.Puzzles',update,3,[{file,"lib/puzzlespace/puzzles/puzz..."},...]},...]},...},...}
-2020-08-07 22:58:52.250 [info] <0.44.0> Application lager started on node nonode@nohost
-2020-08-07 22:58:52.355 [info] <0.44.0> Application xmerl started on node nonode@nohost
-2020-08-07 22:58:52.701 [info] <0.44.0> Application sasl started on node nonode@nohost
-2020-08-07 22:58:52.790 [info] <0.44.0> Application tools started on node nonode@nohost
-2020-08-07 22:58:52.836 [info] <0.44.0> Application jsx started on node nonode@nohost
-2020-08-07 22:58:53.041 [info] <0.44.0> Application ranch started on node nonode@nohost
-2020-08-07 22:58:53.126 [info] <0.44.0> Application recon started on node nonode@nohost
-2020-08-07 22:58:53.719 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
-2020-08-07 22:58:53.719 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
-2020-08-07 22:58:53.765 [info] <0.44.0> Application amqp_client started on node nonode@nohost
-2020-08-07 22:58:53.819 [info] <0.44.0> Application amqp started on node nonode@nohost
-2020-08-07 22:58:53.901 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
-2020-08-07 22:58:54.123 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
-2020-08-07 22:58:54.216 [info] <0.44.0> Application jason started on node nonode@nohost
-2020-08-07 22:58:54.345 [info] <0.44.0> Application comeonin started on node nonode@nohost
-2020-08-07 22:58:54.345 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
-2020-08-07 22:58:54.475 [info] <0.44.0> Application connection started on node nonode@nohost
-2020-08-07 22:58:54.556 [info] <0.44.0> Application decimal started on node nonode@nohost
-2020-08-07 22:58:54.731 [info] <0.44.0> Application db_connection started on node nonode@nohost
-2020-08-07 22:58:54.853 [info] <0.44.0> Application postgrex started on node nonode@nohost
-2020-08-07 22:58:54.986 [info] <0.44.0> Application ecto started on node nonode@nohost
-2020-08-07 22:58:55.003 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
-2020-08-07 22:58:55.038 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
-2020-08-07 22:58:55.228 [info] <0.44.0> Application cowlib started on node nonode@nohost
-2020-08-07 22:58:55.250 [info] <0.44.0> Application cowboy started on node nonode@nohost
-2020-08-07 22:58:55.261 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
-2020-08-07 22:58:55.382 [info] <0.44.0> Application file_system started on node nonode@nohost
-2020-08-07 22:58:56.585 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
-2020-08-07 22:58:56.738 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
-2020-08-07 22:58:56.771 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
-2020-08-07 22:58:56.799 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
-2020-08-07 22:59:01.692 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
-2020-08-07 23:03:15.604 [info] <0.44.0> Application lager started on node nonode@nohost
-2020-08-07 23:03:15.782 [info] <0.44.0> Application xmerl started on node nonode@nohost
-2020-08-07 23:03:16.237 [info] <0.44.0> Application sasl started on node nonode@nohost
-2020-08-07 23:03:16.386 [info] <0.44.0> Application tools started on node nonode@nohost
-2020-08-07 23:03:16.467 [info] <0.44.0> Application jsx started on node nonode@nohost
-2020-08-07 23:03:16.752 [info] <0.44.0> Application ranch started on node nonode@nohost
-2020-08-07 23:03:16.834 [info] <0.44.0> Application recon started on node nonode@nohost
-2020-08-07 23:03:17.736 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
-2020-08-07 23:03:17.736 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
-2020-08-07 23:03:17.864 [info] <0.44.0> Application amqp_client started on node nonode@nohost
-2020-08-07 23:03:17.913 [info] <0.44.0> Application amqp started on node nonode@nohost
-2020-08-07 23:03:18.072 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
-2020-08-07 23:03:18.380 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
-2020-08-07 23:03:18.567 [info] <0.44.0> Application jason started on node nonode@nohost
-2020-08-07 23:03:18.715 [info] <0.44.0> Application comeonin started on node nonode@nohost
-2020-08-07 23:03:18.716 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
-2020-08-07 23:03:18.849 [info] <0.44.0> Application connection started on node nonode@nohost
-2020-08-07 23:03:18.930 [info] <0.44.0> Application decimal started on node nonode@nohost
-2020-08-07 23:03:19.132 [info] <0.44.0> Application db_connection started on node nonode@nohost
-2020-08-07 23:03:19.363 [info] <0.44.0> Application postgrex started on node nonode@nohost
-2020-08-07 23:03:19.497 [info] <0.44.0> Application ecto started on node nonode@nohost
-2020-08-07 23:03:19.506 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
-2020-08-07 23:03:19.529 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
-2020-08-07 23:03:19.689 [info] <0.44.0> Application cowlib started on node nonode@nohost
-2020-08-07 23:03:19.769 [info] <0.44.0> Application cowboy started on node nonode@nohost
-2020-08-07 23:03:19.796 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
-2020-08-07 23:03:19.938 [info] <0.44.0> Application file_system started on node nonode@nohost
-2020-08-07 23:03:20.484 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
-2020-08-07 23:03:20.594 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
-2020-08-07 23:03:20.628 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
-2020-08-07 23:03:20.670 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
-2020-08-07 23:03:25.488 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
-2020-08-07 23:06:25.114 [info] <0.44.0> Application lager started on node nonode@nohost
-2020-08-07 23:06:25.285 [info] <0.44.0> Application xmerl started on node nonode@nohost
-2020-08-07 23:06:25.751 [info] <0.44.0> Application sasl started on node nonode@nohost
-2020-08-07 23:06:25.893 [info] <0.44.0> Application tools started on node nonode@nohost
-2020-08-07 23:06:25.968 [info] <0.44.0> Application jsx started on node nonode@nohost
-2020-08-07 23:06:26.273 [info] <0.44.0> Application ranch started on node nonode@nohost
-2020-08-07 23:06:26.369 [info] <0.44.0> Application recon started on node nonode@nohost
-2020-08-07 23:06:27.176 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
-2020-08-07 23:06:27.176 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
-2020-08-07 23:06:27.363 [info] <0.44.0> Application amqp_client started on node nonode@nohost
-2020-08-07 23:06:27.386 [info] <0.44.0> Application amqp started on node nonode@nohost
-2020-08-07 23:06:27.500 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
-2020-08-07 23:06:27.705 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
-2020-08-07 23:06:27.820 [info] <0.44.0> Application jason started on node nonode@nohost
-2020-08-07 23:06:27.951 [info] <0.44.0> Application comeonin started on node nonode@nohost
-2020-08-07 23:06:27.952 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
-2020-08-07 23:06:28.065 [info] <0.44.0> Application connection started on node nonode@nohost
-2020-08-07 23:06:28.123 [info] <0.44.0> Application decimal started on node nonode@nohost
-2020-08-07 23:06:28.356 [info] <0.44.0> Application db_connection started on node nonode@nohost
-2020-08-07 23:06:28.540 [info] <0.44.0> Application postgrex started on node nonode@nohost
-2020-08-07 23:06:28.698 [info] <0.44.0> Application ecto started on node nonode@nohost
-2020-08-07 23:06:28.723 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
-2020-08-07 23:06:28.773 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
-2020-08-07 23:06:28.960 [info] <0.44.0> Application cowlib started on node nonode@nohost
-2020-08-07 23:06:29.037 [info] <0.44.0> Application cowboy started on node nonode@nohost
-2020-08-07 23:06:29.065 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
-2020-08-07 23:06:29.228 [info] <0.44.0> Application file_system started on node nonode@nohost
-2020-08-07 23:06:30.037 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
-2020-08-07 23:06:30.385 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
-2020-08-07 23:06:30.458 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
-2020-08-07 23:06:30.493 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
-2020-08-07 23:06:37.987 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
-2020-08-07 23:07:10.323 [info] <0.44.0> Application lager started on node nonode@nohost
-2020-08-07 23:07:10.474 [info] <0.44.0> Application xmerl started on node nonode@nohost
-2020-08-07 23:07:10.765 [info] <0.44.0> Application sasl started on node nonode@nohost
-2020-08-07 23:07:10.874 [info] <0.44.0> Application tools started on node nonode@nohost
-2020-08-07 23:07:10.924 [info] <0.44.0> Application jsx started on node nonode@nohost
-2020-08-07 23:07:11.105 [info] <0.44.0> Application ranch started on node nonode@nohost
-2020-08-07 23:07:11.189 [info] <0.44.0> Application recon started on node nonode@nohost
-2020-08-07 23:07:11.905 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
-2020-08-07 23:07:11.905 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
-2020-08-07 23:07:12.062 [info] <0.44.0> Application amqp_client started on node nonode@nohost
-2020-08-07 23:07:12.130 [info] <0.44.0> Application amqp started on node nonode@nohost
-2020-08-07 23:07:12.298 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
-2020-08-07 23:07:12.561 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
-2020-08-07 23:07:12.713 [info] <0.44.0> Application jason started on node nonode@nohost
-2020-08-07 23:07:12.907 [info] <0.44.0> Application comeonin started on node nonode@nohost
-2020-08-07 23:07:12.907 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
-2020-08-07 23:07:13.094 [info] <0.44.0> Application connection started on node nonode@nohost
-2020-08-07 23:07:13.188 [info] <0.44.0> Application decimal started on node nonode@nohost
-2020-08-07 23:07:13.436 [info] <0.44.0> Application db_connection started on node nonode@nohost
-2020-08-07 23:07:13.758 [info] <0.44.0> Application postgrex started on node nonode@nohost
-2020-08-07 23:07:13.950 [info] <0.44.0> Application ecto started on node nonode@nohost
-2020-08-07 23:07:13.969 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
-2020-08-07 23:07:14.033 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
-2020-08-07 23:07:14.274 [info] <0.44.0> Application cowlib started on node nonode@nohost
-2020-08-07 23:07:14.369 [info] <0.44.0> Application cowboy started on node nonode@nohost
-2020-08-07 23:07:14.388 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
-2020-08-07 23:07:14.559 [info] <0.44.0> Application file_system started on node nonode@nohost
-2020-08-07 23:07:15.106 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
-2020-08-07 23:07:15.214 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
-2020-08-07 23:07:15.251 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
-2020-08-07 23:07:15.284 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
-2020-08-07 23:07:19.904 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
-2020-08-07 23:40:41.597 [error] <0.605.0> gen_server <0.605.0> terminated with reason: heartbeat_timeout
-2020-08-07 23:40:41.598 [error] <0.605.0> CRASH REPORT Process <0.605.0> with 0 neighbours exited with reason: heartbeat_timeout in gen_server:handle_common_reply/8 line 751
-2020-08-07 23:40:41.599 [error] <0.603.0> Supervisor {<0.603.0>,amqp_connection_sup} had child connection started with amqp_gen_connection:start_link(<0.604.0>, {amqp_params_network,<<"psserver">>,{plaintext,<<"fizzbuzz">>},<<"/">>,"192.168.1.142",5672,0,0,...}) at <0.605.0> exit with reason heartbeat_timeout in context child_terminated
-2020-08-07 23:40:41.599 [error] <0.603.0> Supervisor {<0.603.0>,amqp_connection_sup} had child connection started with amqp_gen_connection:start_link(<0.604.0>, {amqp_params_network,<<"psserver">>,{plaintext,<<"fizzbuzz">>},<<"/">>,"192.168.1.142",5672,0,0,...}) at <0.605.0> exit with reason reached_max_restart_intensity in context shutdown
-2020-08-07 23:41:20.288 [warning] <0.315.0> Unexpected error_logger event {error_msg,<0.460.0>,{<0.859.0>,[42,42,32,84,97,115,107,32,126,112,32,116,101,114,109,105,110,97,116,105,110,103,126,110,42,42,32,83,116,97,114,116,101,100,32,102,114,111,109,32,126,112,126,110,42,42,32,87,104,101,110,32,102,117,110,99,116,105,111,110,32,32,61,61,32,126,112,126,110,42,42,32,32,32,32,32,32,97,114,103,117,109,101,110,116,115,32,61,61,32,126,112,126,110,42,42,32,82,101,97,115,111,110,32,102,111,114,32,116,101,114,109,105,110,97,116,105,111,110,32,61,61,32,126,110,42,42,32,126,112,126,110],[<0.859.0>,bridges,#Fun<Elixir.RPCCoordinator.RPCHandler.0.55376292>,[],{{noproc,{gen_server,call,[<0.614.0>,{subscribe,{'basic.consume',0,<<115,116,98,114,105,100,103,101,115,95,114,101,115,112,111,110,115,101>>,<<>>,false,false,false,false,[]},<0.860.0>},60000]}},[{gen_server,call,3,[{file,[103,101,110,95,115,101,114,118,101,114,46,101,114,108]},{line,223}]},{'Elixir.AMQP.Basic',consume,4,[{file,[108,105,98,47,97,109,113,112,47,98,97,115,105,99,46,101,120]},{line,351}]},{'Elixir.RPCCoordinator.RPCHandler','-handle_cast/2-fun-0-',6,[{file,[108,105,98,47,112,117,122,122,108,101,115,112,97,99,101,47,112,117,122,122,108,101,115,47,115,116,112,117,122,122,108,101,47,114,95,112,95,99,95,99,111,111,114,100,105,110,97,116,111,114,46,101,120]},{line,78}]},{'Elixir.Task.Supervised',invoke_mfa,2,[{file,[108,105,98,47,116,97,115,107,47,115,117,112,101,114,118,105,115,101,100,46,101,120]},{line,90}]},{proc_lib,init_p_do_apply,3,[{file,[112,114,111,99,95,108,105,98,46,101,114,108]},{line,249}]}]}]}}
-2020-08-07 23:41:20.304 [error] <0.859.0>@gen_server:call CRASH REPORT Process <0.859.0> with 0 neighbours exited with reason: no such process or port in call to gen_server:call(<0.614.0>, {subscribe,{'basic.consume',0,<<"stbridges_response">>,<<>>,false,false,false,false,[]},<0.860.0>}, 60000) in gen_server:call/3 line 223
-2020-08-07 23:41:20.306 [error] <0.618.0>@gen_server:call Supervisor {<0.618.0>,'Elixir.Task.Supervisor'} had child undefined started with {'Elixir.Task.Supervised',start_link,undefined} at <0.859.0> exit with reason no such process or port in call to gen_server:call(<0.614.0>, {subscribe,{'basic.consume',0,<<"stbridges_response">>,<<>>,false,false,false,false,[]},<0.860.0>}, 60000) in context child_terminated
-2020-08-07 23:41:47.487 [warning] <0.315.0> Unexpected error_logger event {error_msg,<0.460.0>,{<0.865.0>,[42,42,32,84,97,115,107,32,126,112,32,116,101,114,109,105,110,97,116,105,110,103,126,110,42,42,32,83,116,97,114,116,101,100,32,102,114,111,109,32,126,112,126,110,42,42,32,87,104,101,110,32,102,117,110,99,116,105,111,110,32,32,61,61,32,126,112,126,110,42,42,32,32,32,32,32,32,97,114,103,117,109,101,110,116,115,32,61,61,32,126,112,126,110,42,42,32,82,101,97,115,111,110,32,102,111,114,32,116,101,114,109,105,110,97,116,105,111,110,32,61,61,32,126,110,42,42,32,126,112,126,110],[<0.865.0>,bridges,#Fun<Elixir.RPCCoordinator.RPCHandler.0.55376292>,[],{{noproc,{gen_server,call,[<0.614.0>,{subscribe,{'basic.consume',0,<<115,116,98,114,105,100,103,101,115,95,114,101,115,112,111,110,115,101>>,<<>>,false,false,false,false,[]},<0.866.0>},60000]}},[{gen_server,call,3,[{file,[103,101,110,95,115,101,114,118,101,114,46,101,114,108]},{line,223}]},{'Elixir.AMQP.Basic',consume,4,[{file,[108,105,98,47,97,109,113,112,47,98,97,115,105,99,46,101,120]},{line,351}]},{'Elixir.RPCCoordinator.RPCHandler','-handle_cast/2-fun-0-',6,[{file,[108,105,98,47,112,117,122,122,108,101,115,112,97,99,101,47,112,117,122,122,108,101,115,47,115,116,112,117,122,122,108,101,47,114,95,112,95,99,95,99,111,111,114,100,105,110,97,116,111,114,46,101,120]},{line,78}]},{'Elixir.Task.Supervised',invoke_mfa,2,[{file,[108,105,98,47,116,97,115,107,47,115,117,112,101,114,118,105,115,101,100,46,101,120]},{line,90}]},{proc_lib,init_p_do_apply,3,[{file,[112,114,111,99,95,108,105,98,46,101,114,108]},{line,249}]}]}]}}
-2020-08-07 23:41:47.489 [error] <0.865.0>@gen_server:call CRASH REPORT Process <0.865.0> with 0 neighbours exited with reason: no such process or port in call to gen_server:call(<0.614.0>, {subscribe,{'basic.consume',0,<<"stbridges_response">>,<<>>,false,false,false,false,[]},<0.866.0>}, 60000) in gen_server:call/3 line 223
-2020-08-07 23:41:47.489 [error] <0.618.0>@gen_server:call Supervisor {<0.618.0>,'Elixir.Task.Supervisor'} had child undefined started with {'Elixir.Task.Supervised',start_link,undefined} at <0.865.0> exit with reason no such process or port in call to gen_server:call(<0.614.0>, {subscribe,{'basic.consume',0,<<"stbridges_response">>,<<>>,false,false,false,false,[]},<0.866.0>}, 60000) in context child_terminated
-2020-08-07 23:42:07.207 [warning] <0.315.0> Unexpected error_logger event {error_msg,<0.460.0>,{<0.903.0>,[42,42,32,84,97,115,107,32,126,112,32,116,101,114,109,105,110,97,116,105,110,103,126,110,42,42,32,83,116,97,114,116,101,100,32,102,114,111,109,32,126,112,126,110,42,42,32,87,104,101,110,32,102,117,110,99,116,105,111,110,32,32,61,61,32,126,112,126,110,42,42,32,32,32,32,32,32,97,114,103,117,109,101,110,116,115,32,61,61,32,126,112,126,110,42,42,32,82,101,97,115,111,110,32,102,111,114,32,116,101,114,109,105,110,97,116,105,111,110,32,61,61,32,126,110,42,42,32,126,112,126,110],[<0.903.0>,bridges,#Fun<Elixir.RPCCoordinator.RPCHandler.0.55376292>,[],{{noproc,{gen_server,call,[<0.614.0>,{subscribe,{'basic.consume',0,<<115,116,98,114,105,100,103,101,115,95,114,101,115,112,111,110,115,101>>,<<>>,false,false,false,false,[]},<0.905.0>},60000]}},[{gen_server,call,3,[{file,[103,101,110,95,115,101,114,118,101,114,46,101,114,108]},{line,223}]},{'Elixir.AMQP.Basic',consume,4,[{file,[108,105,98,47,97,109,113,112,47,98,97,115,105,99,46,101,120]},{line,351}]},{'Elixir.RPCCoordinator.RPCHandler','-handle_cast/2-fun-0-',6,[{file,[108,105,98,47,112,117,122,122,108,101,115,112,97,99,101,47,112,117,122,122,108,101,115,47,115,116,112,117,122,122,108,101,47,114,95,112,95,99,95,99,111,111,114,100,105,110,97,116,111,114,46,101,120]},{line,78}]},{'Elixir.Task.Supervised',invoke_mfa,2,[{file,[108,105,98,47,116,97,115,107,47,115,117,112,101,114,118,105,115,101,100,46,101,120]},{line,90}]},{proc_lib,init_p_do_apply,3,[{file,[112,114,111,99,95,108,105,98,46,101,114,108]},{line,249}]}]}]}}
-2020-08-07 23:42:07.209 [error] <0.903.0>@gen_server:call CRASH REPORT Process <0.903.0> with 0 neighbours exited with reason: no such process or port in call to gen_server:call(<0.614.0>, {subscribe,{'basic.consume',0,<<"stbridges_response">>,<<>>,false,false,false,false,[]},<0.905.0>}, 60000) in gen_server:call/3 line 223
-2020-08-07 23:42:07.210 [error] <0.618.0>@gen_server:call Supervisor {<0.618.0>,'Elixir.Task.Supervisor'} had child undefined started with {'Elixir.Task.Supervised',start_link,undefined} at <0.903.0> exit with reason no such process or port in call to gen_server:call(<0.614.0>, {subscribe,{'basic.consume',0,<<"stbridges_response">>,<<>>,false,false,false,false,[]},<0.905.0>}, 60000) in context child_terminated
-2020-08-07 23:42:24.949 [info] <0.44.0> Application lager started on node nonode@nohost
-2020-08-07 23:42:24.989 [info] <0.44.0> Application xmerl started on node nonode@nohost
-2020-08-07 23:42:25.112 [info] <0.44.0> Application sasl started on node nonode@nohost
-2020-08-07 23:42:25.145 [info] <0.44.0> Application tools started on node nonode@nohost
-2020-08-07 23:42:25.181 [info] <0.44.0> Application jsx started on node nonode@nohost
-2020-08-07 23:42:25.278 [info] <0.44.0> Application ranch started on node nonode@nohost
-2020-08-07 23:42:25.300 [info] <0.44.0> Application recon started on node nonode@nohost
-2020-08-07 23:42:25.761 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
-2020-08-07 23:42:25.761 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
-2020-08-07 23:42:25.785 [info] <0.44.0> Application amqp_client started on node nonode@nohost
-2020-08-07 23:42:25.793 [info] <0.44.0> Application amqp started on node nonode@nohost
-2020-08-07 23:42:25.831 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
-2020-08-07 23:42:25.908 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
-2020-08-07 23:42:25.952 [info] <0.44.0> Application jason started on node nonode@nohost
-2020-08-07 23:42:26.037 [info] <0.44.0> Application comeonin started on node nonode@nohost
-2020-08-07 23:42:26.037 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
-2020-08-07 23:42:26.108 [info] <0.44.0> Application connection started on node nonode@nohost
-2020-08-07 23:42:26.134 [info] <0.44.0> Application decimal started on node nonode@nohost
-2020-08-07 23:42:26.212 [info] <0.44.0> Application db_connection started on node nonode@nohost
-2020-08-07 23:42:26.308 [info] <0.44.0> Application postgrex started on node nonode@nohost
-2020-08-07 23:42:26.365 [info] <0.44.0> Application ecto started on node nonode@nohost
-2020-08-07 23:42:26.370 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
-2020-08-07 23:42:26.395 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
-2020-08-07 23:42:26.476 [info] <0.44.0> Application cowlib started on node nonode@nohost
-2020-08-07 23:42:26.491 [info] <0.44.0> Application cowboy started on node nonode@nohost
-2020-08-07 23:42:26.499 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
-2020-08-07 23:42:26.563 [info] <0.44.0> Application file_system started on node nonode@nohost
-2020-08-07 23:42:26.717 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
-2020-08-07 23:42:26.736 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
-2020-08-07 23:42:26.750 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
-2020-08-07 23:42:26.762 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
-2020-08-07 23:42:35.156 [error] <0.590.0> CRASH REPORT Process <0.590.0> with 0 neighbours exited with reason: {{{{noproc,{'Elixir.GenServer',call,['Elixir.Puzzlespace.SessionHandler',{check,<<"2Ydw4U4KmJaUxDziby9Ez4+HEL0=">>},5000]}},{'Elixir.PuzzlespaceWeb.Endpoint',call,[#{'__struct__' => 'Elixir.Plug.Conn',adapter => {'Elixir.Plug.Cowboy.Conn',#{bindings => #{},body_length => 0,cert => undefined,has_body => false,headers => #{<<"accept">> => <<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>,<<"accept-encoding">> => <<"gzip, deflate">>,<<"accept-language">> => <<"...">>,...},...}},...},...]}},...},...}
-2020-08-07 23:42:35.604 [error] <0.590.0> Cowboy stream 1 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.589.0> had its request process exit with reason: {{{noproc,{'Elixir.GenServer',call,['Elixir.Puzzlespace.SessionHandler',{check,<<"2Ydw4U4KmJaUxDziby9Ez4+HEL0=">>},5000]}},{'Elixir.PuzzlespaceWeb.Endpoint',call,[#{'__struct__' => 'Elixir.Plug.Conn',adapter => {'Elixir.Plug.Cowboy.Conn',#{bindings => #{},body_length => 0,cert => undefined,has_body => false,headers => #{<<"accept">> => <<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>,<<"accept-encoding">> => <<"gzip, deflate">>,<<"accept-language">> => <<"e...">>,...},...}},...},...]}},...}
-2020-08-07 23:42:48.884 [error] <0.592.0> CRASH REPORT Process <0.592.0> with 0 neighbours exited with reason: {{{{noproc,{'Elixir.GenServer',call,['Elixir.Puzzlespace.SessionHandler',{check,<<"2Ydw4U4KmJaUxDziby9Ez4+HEL0=">>},5000]}},{'Elixir.PuzzlespaceWeb.Endpoint',call,[#{'__struct__' => 'Elixir.Plug.Conn',adapter => {'Elixir.Plug.Cowboy.Conn',#{bindings => #{},body_length => 0,cert => undefined,has_body => false,headers => #{<<"accept">> => <<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>,<<"accept-encoding">> => <<"gzip, deflate">>,<<"accept-language">> => <<"...">>,...},...}},...},...]}},...},...}
-2020-08-07 23:42:48.898 [error] <0.592.0> Cowboy stream 2 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.589.0> had its request process exit with reason: {{{noproc,{'Elixir.GenServer',call,['Elixir.Puzzlespace.SessionHandler',{check,<<"2Ydw4U4KmJaUxDziby9Ez4+HEL0=">>},5000]}},{'Elixir.PuzzlespaceWeb.Endpoint',call,[#{'__struct__' => 'Elixir.Plug.Conn',adapter => {'Elixir.Plug.Cowboy.Conn',#{bindings => #{},body_length => 0,cert => undefined,has_body => false,headers => #{<<"accept">> => <<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>,<<"accept-encoding">> => <<"gzip, deflate">>,<<"accept-language">> => <<"e...">>,...},...}},...},...]}},...}
-2020-08-07 23:43:14.833 [info] <0.44.0> Application lager started on node nonode@nohost
-2020-08-07 23:43:14.883 [info] <0.44.0> Application xmerl started on node nonode@nohost
-2020-08-07 23:43:15.008 [info] <0.44.0> Application sasl started on node nonode@nohost
-2020-08-07 23:43:15.040 [info] <0.44.0> Application tools started on node nonode@nohost
-2020-08-07 23:43:15.077 [info] <0.44.0> Application jsx started on node nonode@nohost
-2020-08-07 23:43:15.164 [info] <0.44.0> Application ranch started on node nonode@nohost
-2020-08-07 23:43:15.191 [info] <0.44.0> Application recon started on node nonode@nohost
-2020-08-07 23:43:15.627 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
-2020-08-07 23:43:15.627 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
-2020-08-07 23:43:15.649 [info] <0.44.0> Application amqp_client started on node nonode@nohost
-2020-08-07 23:43:15.659 [info] <0.44.0> Application amqp started on node nonode@nohost
-2020-08-07 23:43:15.696 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
-2020-08-07 23:43:15.767 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
-2020-08-07 23:43:15.806 [info] <0.44.0> Application jason started on node nonode@nohost
-2020-08-07 23:43:15.868 [info] <0.44.0> Application comeonin started on node nonode@nohost
-2020-08-07 23:43:15.869 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
-2020-08-07 23:43:15.944 [info] <0.44.0> Application connection started on node nonode@nohost
-2020-08-07 23:43:15.995 [info] <0.44.0> Application decimal started on node nonode@nohost
-2020-08-07 23:43:16.084 [info] <0.44.0> Application db_connection started on node nonode@nohost
-2020-08-07 23:43:16.150 [info] <0.44.0> Application postgrex started on node nonode@nohost
-2020-08-07 23:43:16.218 [info] <0.44.0> Application ecto started on node nonode@nohost
-2020-08-07 23:43:16.224 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
-2020-08-07 23:43:16.244 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
-2020-08-07 23:43:16.332 [info] <0.44.0> Application cowlib started on node nonode@nohost
-2020-08-07 23:43:16.350 [info] <0.44.0> Application cowboy started on node nonode@nohost
-2020-08-07 23:43:16.360 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
-2020-08-07 23:43:16.416 [info] <0.44.0> Application file_system started on node nonode@nohost
-2020-08-07 23:43:16.672 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
-2020-08-07 23:43:16.700 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
-2020-08-07 23:43:16.725 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
-2020-08-07 23:43:16.731 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
-2020-08-07 23:43:27.572 [error] <0.590.0> CRASH REPORT Process <0.590.0> with 0 neighbours exited with reason: {{{{noproc,{'Elixir.GenServer',call,['Elixir.Puzzlespace.SessionHandler',{check,<<"2Ydw4U4KmJaUxDziby9Ez4+HEL0=">>},5000]}},{'Elixir.PuzzlespaceWeb.Endpoint',call,[#{'__struct__' => 'Elixir.Plug.Conn',adapter => {'Elixir.Plug.Cowboy.Conn',#{bindings => #{},body_length => 0,cert => undefined,has_body => false,headers => #{<<"accept">> => <<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>,<<"accept-encoding">> => <<"gzip, deflate">>,<<"accept-language">> => <<"...">>,...},...}},...},...]}},...},...}
-2020-08-07 23:43:27.583 [error] <0.590.0> Cowboy stream 1 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.589.0> had its request process exit with reason: {{{noproc,{'Elixir.GenServer',call,['Elixir.Puzzlespace.SessionHandler',{check,<<"2Ydw4U4KmJaUxDziby9Ez4+HEL0=">>},5000]}},{'Elixir.PuzzlespaceWeb.Endpoint',call,[#{'__struct__' => 'Elixir.Plug.Conn',adapter => {'Elixir.Plug.Cowboy.Conn',#{bindings => #{},body_length => 0,cert => undefined,has_body => false,headers => #{<<"accept">> => <<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>,<<"accept-encoding">> => <<"gzip, deflate">>,<<"accept-language">> => <<"e...">>,...},...}},...},...]}},...}
-2020-08-07 23:44:17.795 [error] <0.581.0> CRASH REPORT Process <0.581.0> with 0 neighbours exited with reason: {timeout,{gen_server,call,[<0.584.0>,connect,60000]}} in gen_server:call/3 line 223
-2020-08-07 23:44:17.795 [error] <0.441.0> Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at undefined exit with reason {'EXIT',{{badmatch,{error,{timeout,{gen_server,call,[<0.584.0>,connect,60000]}}}},[{'Elixir.STPuzzleCoordinator',initialize,0,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,15}]},{supervisor,do_start_child_i,3,[{file,"supervisor.erl"},{line,379}]},{supervisor,do_start_child,2,[{file,"supervisor.erl"},{line,365}]},{supervisor,'-start_children/2-fun-0-',3,[{file,"supervisor.erl"},{line,349}]},{supervisor,children_map,4,[{file,"supervisor.erl"},{line,1157}]},{supervisor,...},...]}} in context start_error
-2020-08-07 23:44:17.936 [error] <0.588.0> gen_server <0.588.0> terminated with reason: {socket_error,timeout}
-2020-08-07 23:44:22.788 [error] <0.455.0> Supervisor 'Elixir.PuzzlespaceWeb.Endpoint' had child 'Elixir.Plug.Cowboy.Drainer' started with 'Elixir.Plug.Cowboy.Drainer':start_link([{refs,['Elixir.PuzzlespaceWeb.Endpoint.HTTP']}]) at <0.579.0> exit with reason killed in context shutdown_error
-2020-08-07 23:44:22.791 [error] <0.439.0> CRASH REPORT Process <0.439.0> with 0 neighbours exited with reason: {{shutdown,{failed_to_start_child,'Elixir.STPuzzleCoordinator',{'EXIT',{{badmatch,{error,{timeout,{gen_server,call,[<0.584.0>,connect,60000]}}}},[{'Elixir.STPuzzleCoordinator',initialize,0,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,15}]},{supervisor,do_start_child_i,3,[{file,"supervisor.erl"},{line,379}]},{supervisor,do_start_child,2,[{file,"supervisor.erl"},{line,365}]},{supervisor,'-start_children/2-fun-0-',3,[{file,"supervisor.erl"},{line,349}]},{supervisor,...},...]}}}},...} in application_master:init/4 line 138
-2020-08-07 23:49:30.176 [info] <0.44.0> Application lager started on node nonode@nohost
-2020-08-07 23:49:30.216 [info] <0.44.0> Application xmerl started on node nonode@nohost
-2020-08-07 23:49:30.347 [info] <0.44.0> Application sasl started on node nonode@nohost
-2020-08-07 23:49:30.399 [info] <0.44.0> Application tools started on node nonode@nohost
-2020-08-07 23:49:30.434 [info] <0.44.0> Application jsx started on node nonode@nohost
-2020-08-07 23:49:30.517 [info] <0.44.0> Application ranch started on node nonode@nohost
-2020-08-07 23:49:30.571 [info] <0.44.0> Application recon started on node nonode@nohost
-2020-08-07 23:49:31.005 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
-2020-08-07 23:49:31.006 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
-2020-08-07 23:49:31.029 [info] <0.44.0> Application amqp_client started on node nonode@nohost
-2020-08-07 23:49:31.037 [info] <0.44.0> Application amqp started on node nonode@nohost
-2020-08-07 23:49:31.074 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
-2020-08-07 23:49:31.159 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
-2020-08-07 23:49:31.200 [info] <0.44.0> Application jason started on node nonode@nohost
-2020-08-07 23:49:31.287 [info] <0.44.0> Application comeonin started on node nonode@nohost
-2020-08-07 23:49:31.288 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
-2020-08-07 23:49:31.348 [info] <0.44.0> Application connection started on node nonode@nohost
-2020-08-07 23:49:31.380 [info] <0.44.0> Application decimal started on node nonode@nohost
-2020-08-07 23:49:31.454 [info] <0.44.0> Application db_connection started on node nonode@nohost
-2020-08-07 23:49:31.532 [info] <0.44.0> Application postgrex started on node nonode@nohost
-2020-08-07 23:49:31.586 [info] <0.44.0> Application ecto started on node nonode@nohost
-2020-08-07 23:49:31.602 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
-2020-08-07 23:49:31.612 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
-2020-08-07 23:49:31.683 [info] <0.44.0> Application cowlib started on node nonode@nohost
-2020-08-07 23:49:31.715 [info] <0.44.0> Application cowboy started on node nonode@nohost
-2020-08-07 23:49:31.719 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
-2020-08-07 23:49:31.774 [info] <0.44.0> Application file_system started on node nonode@nohost
-2020-08-07 23:49:31.956 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
-2020-08-07 23:49:31.979 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
-2020-08-07 23:49:31.995 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
-2020-08-07 23:49:32.002 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
-2020-08-07 23:49:37.186 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
+2020-08-08 00:27:54.906 [info] <0.44.0> Application lager started on node nonode@nohost
+2020-08-08 00:27:54.950 [info] <0.44.0> Application xmerl started on node nonode@nohost
+2020-08-08 00:27:55.077 [info] <0.44.0> Application sasl started on node nonode@nohost
+2020-08-08 00:27:55.154 [info] <0.44.0> Application tools started on node nonode@nohost
+2020-08-08 00:27:55.201 [info] <0.44.0> Application jsx started on node nonode@nohost
+2020-08-08 00:27:55.297 [info] <0.44.0> Application ranch started on node nonode@nohost
+2020-08-08 00:27:55.329 [info] <0.44.0> Application recon started on node nonode@nohost
+2020-08-08 00:27:55.831 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
+2020-08-08 00:27:55.832 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
+2020-08-08 00:27:56.010 [info] <0.44.0> Application amqp_client started on node nonode@nohost
+2020-08-08 00:27:56.088 [info] <0.44.0> Application amqp started on node nonode@nohost
+2020-08-08 00:27:56.147 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
+2020-08-08 00:27:56.240 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
+2020-08-08 00:27:56.382 [info] <0.44.0> Application jason started on node nonode@nohost
+2020-08-08 00:27:56.439 [info] <0.44.0> Application comeonin started on node nonode@nohost
+2020-08-08 00:27:56.441 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
+2020-08-08 00:27:56.514 [info] <0.44.0> Application connection started on node nonode@nohost
+2020-08-08 00:27:56.561 [info] <0.44.0> Application decimal started on node nonode@nohost
+2020-08-08 00:27:56.675 [info] <0.44.0> Application db_connection started on node nonode@nohost
+2020-08-08 00:27:56.800 [info] <0.44.0> Application postgrex started on node nonode@nohost
+2020-08-08 00:27:56.890 [info] <0.44.0> Application ecto started on node nonode@nohost
+2020-08-08 00:27:56.894 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
+2020-08-08 00:27:56.906 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
+2020-08-08 00:27:57.151 [info] <0.44.0> Application cowlib started on node nonode@nohost
+2020-08-08 00:27:57.256 [info] <0.44.0> Application cowboy started on node nonode@nohost
+2020-08-08 00:27:57.315 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
+2020-08-08 00:27:57.709 [info] <0.44.0> Application file_system started on node nonode@nohost
+2020-08-08 00:27:58.023 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
+2020-08-08 00:27:58.050 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
+2020-08-08 00:27:58.127 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
+2020-08-08 00:27:58.155 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
+2020-08-08 00:28:00.737 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
+2020-08-08 00:31:41.888 [info] <0.44.0> Application lager started on node nonode@nohost
+2020-08-08 00:31:41.926 [info] <0.44.0> Application xmerl started on node nonode@nohost
+2020-08-08 00:31:42.036 [info] <0.44.0> Application sasl started on node nonode@nohost
+2020-08-08 00:31:42.068 [info] <0.44.0> Application tools started on node nonode@nohost
+2020-08-08 00:31:42.103 [info] <0.44.0> Application jsx started on node nonode@nohost
+2020-08-08 00:31:42.177 [info] <0.44.0> Application ranch started on node nonode@nohost
+2020-08-08 00:31:42.218 [info] <0.44.0> Application recon started on node nonode@nohost
+2020-08-08 00:31:42.716 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
+2020-08-08 00:31:42.717 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
+2020-08-08 00:31:42.741 [info] <0.44.0> Application amqp_client started on node nonode@nohost
+2020-08-08 00:31:42.750 [info] <0.44.0> Application amqp started on node nonode@nohost
+2020-08-08 00:31:42.804 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
+2020-08-08 00:31:42.897 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
+2020-08-08 00:31:42.948 [info] <0.44.0> Application jason started on node nonode@nohost
+2020-08-08 00:31:43.022 [info] <0.44.0> Application comeonin started on node nonode@nohost
+2020-08-08 00:31:43.023 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
+2020-08-08 00:31:43.081 [info] <0.44.0> Application connection started on node nonode@nohost
+2020-08-08 00:31:43.132 [info] <0.44.0> Application decimal started on node nonode@nohost
+2020-08-08 00:31:43.196 [info] <0.44.0> Application db_connection started on node nonode@nohost
+2020-08-08 00:31:43.263 [info] <0.44.0> Application postgrex started on node nonode@nohost
+2020-08-08 00:31:43.338 [info] <0.44.0> Application ecto started on node nonode@nohost
+2020-08-08 00:31:43.345 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
+2020-08-08 00:31:43.388 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
+2020-08-08 00:31:43.464 [info] <0.44.0> Application cowlib started on node nonode@nohost
+2020-08-08 00:31:43.499 [info] <0.44.0> Application cowboy started on node nonode@nohost
+2020-08-08 00:31:43.507 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
+2020-08-08 00:31:43.544 [info] <0.44.0> Application file_system started on node nonode@nohost
+2020-08-08 00:31:43.657 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
+2020-08-08 00:31:43.689 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
+2020-08-08 00:31:43.712 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
+2020-08-08 00:31:43.726 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
+2020-08-08 00:31:45.820 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
+2020-08-08 02:19:52.323 [info] <0.44.0> Application lager started on node nonode@nohost
+2020-08-08 02:19:52.418 [info] <0.44.0> Application xmerl started on node nonode@nohost
+2020-08-08 02:19:52.589 [info] <0.44.0> Application sasl started on node nonode@nohost
+2020-08-08 02:19:52.633 [info] <0.44.0> Application tools started on node nonode@nohost
+2020-08-08 02:19:52.672 [info] <0.44.0> Application jsx started on node nonode@nohost
+2020-08-08 02:19:52.804 [info] <0.44.0> Application ranch started on node nonode@nohost
+2020-08-08 02:19:52.829 [info] <0.44.0> Application recon started on node nonode@nohost
+2020-08-08 02:19:53.479 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
+2020-08-08 02:19:53.480 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
+2020-08-08 02:19:53.598 [info] <0.44.0> Application amqp_client started on node nonode@nohost
+2020-08-08 02:19:53.665 [info] <0.44.0> Application amqp started on node nonode@nohost
+2020-08-08 02:19:53.705 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
+2020-08-08 02:19:53.853 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
+2020-08-08 02:19:53.883 [info] <0.44.0> Application jason started on node nonode@nohost
+2020-08-08 02:19:53.953 [info] <0.44.0> Application comeonin started on node nonode@nohost
+2020-08-08 02:19:53.953 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
+2020-08-08 02:19:54.046 [info] <0.44.0> Application connection started on node nonode@nohost
+2020-08-08 02:19:54.071 [info] <0.44.0> Application decimal started on node nonode@nohost
+2020-08-08 02:19:54.231 [info] <0.44.0> Application db_connection started on node nonode@nohost
+2020-08-08 02:19:54.345 [info] <0.44.0> Application postgrex started on node nonode@nohost
+2020-08-08 02:19:54.440 [info] <0.44.0> Application ecto started on node nonode@nohost
+2020-08-08 02:19:54.465 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
+2020-08-08 02:19:54.474 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
+2020-08-08 02:19:54.567 [info] <0.44.0> Application cowlib started on node nonode@nohost
+2020-08-08 02:19:54.628 [info] <0.44.0> Application cowboy started on node nonode@nohost
+2020-08-08 02:19:54.670 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
+2020-08-08 02:19:54.743 [info] <0.44.0> Application file_system started on node nonode@nohost
+2020-08-08 02:19:54.953 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
+2020-08-08 02:19:54.984 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
+2020-08-08 02:19:55.110 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
+2020-08-08 02:19:55.133 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
+2020-08-08 02:19:58.437 [warning] <0.331.0> Unexpected error_logger event {error_msg,<0.476.0>,{<0.639.0>,[42,42,32,84,97,115,107,32,126,112,32,116,101,114,109,105,110,97,116,105,110,103,126,110,42,42,32,83,116,97,114,116,101,100,32,102,114,111,109,32,126,112,126,110,42,42,32,87,104,101,110,32,102,117,110,99,116,105,111,110,32,32,61,61,32,126,112,126,110,42,42,32,32,32,32,32,32,97,114,103,117,109,101,110,116,115,32,61,61,32,126,112,126,110,42,42,32,82,101,97,115,111,110,32,102,111,114,32,116,101,114,109,105,110,97,116,105,111,110,32,61,61,32,126,110,42,42,32,126,112,126,110],[<0.639.0>,<0.635.0>,#Fun<Elixir.Parallel.1.94083616>,[],{badarg,[{ets,insert,[[#{<<98>> => 0.833333,<<103>> => 0.833333,<<114>> => 0.833333},#{<<98>> => 0.0,<<103>> => 0.0,<<114>> => 0.0},#{<<98>> => 1.0,<<103>> => 1.0,<<114>> => 1.0},#{<<98>> => 0.666667,<<103>> => 0.666667,<<114>> => 0.666667},#{<<98>> => 0.25,<<103>> => 1.0,<<114>> => 0.25},#{<<98>> => 1.0,<<103>> => 1.0,<<114>> => 1.0},#{<<98>> => 0.666667,<<103>> => 0.666667,<<114>> => 0.666667},#{<<98>> => 0.75,<<103>> => 0.75,<<114>> => 0.75},#{<<98>> => 0.25,<<103>> => 0.25,<<114>> => 1.0},#{<<98>> => 0.666667,<<103>> => 0.666667,<<114>> => 1.0}],{bridges,#Ref<0.575077859.2373844993.54067>}],[]},{'Elixir.STPuzzleCoordinator.ConfigHandler','-init/1-fun-3-',2,[{file,[108,105,98,47,112,117,122,122,108,101,115,112,97,99,101,47,112,117,122,122,108,101,115,47,115,116,112,117,122,122,108,101,47,115,95,116,95,112,117,122,122,108,101,95,99,111,111,114,100,105,110,97,116,111,114,46,101,120]},{line,207}]},{'Elixir.Task.Supervised',invoke_mfa,2,[{file,[108,105,98,47,116,97,115,107,47,115,117,112,101,114,118,105,115,101,100,46,101,120]},{line,90}]},{'Elixir.Task.Supervised',reply,5,[{file,[108,105,98,47,116,97,115,107,47,115,117,112,101,114,118,105,115,101,100,46,101,120]},{line,35}]},{proc_lib,init_p_do_apply,3,[{file,[112,114,111,99,95,108,105,98,46,101,114,108]},{line,249}]}]}]}}
+2020-08-08 02:19:58.642 [error] <0.639.0>@Elixir.STPuzzleCoordinator.ConfigHandler:-init/1-fun-3-:207 CRASH REPORT Process <0.639.0> with 1 neighbours crashed with reason: bad argument in call to ets:insert([#{<<"b">> => 0.833333,<<"g">> => 0.833333,<<"r">> => 0.833333},#{<<"b">> => 0.0,<<"g">> => 0.0,...},...], {bridges,#Ref<0.575077859.2373844993.54067>}) in 'Elixir.STPuzzleCoordinator.ConfigHandler':'-init/1-fun-3-'/2 line 207
+2020-08-08 02:19:58.644 [error] <0.478.0> Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at undefined exit with reason {'EXIT',{{badmatch,{error,{badarg,[{ets,insert,[[#{<<"b">> => 0.833333,<<"g">> => 0.833333,<<"r">> => 0.833333},#{<<"b">> => 0.0,<<"g">> => 0.0,<<"r">> => 0.0},#{<<"b">> => 1.0,<<"g">> => 1.0,<<"r">> => 1.0},#{<<"b">> => 0.666667,<<"g">> => 0.666667,<<"r">> => 0.666667},#{<<"b">> => 0.25,<<"g">> => 1.0,<<"r">> => 0.25},#{<<"b">> => 1.0,<<"g">> => 1.0,<<"r">> => 1.0},#{<<"b">> => 0.666667,<<"g">> => 0.666667,<<"r">> => 0.666667},#{<<"b">> => 0.75,<<"g">> => 0.75,<<"r">> => 0.75},#{<<"b">> => 0.25,...},...],...],...},...]}}},...}} in context start_error
+2020-08-08 02:19:58.647 [error] <0.476.0> CRASH REPORT Process <0.476.0> with 0 neighbours exited with reason: {{shutdown,{failed_to_start_child,'Elixir.STPuzzleCoordinator',{'EXIT',{{badmatch,{error,{badarg,[{ets,insert,[[#{<<"b">> => 0.833333,<<"g">> => 0.833333,<<"r">> => 0.833333},#{<<"b">> => 0.0,<<"g">> => 0.0,<<"r">> => 0.0},#{<<"b">> => 1.0,<<"g">> => 1.0,<<"r">> => 1.0},#{<<"b">> => 0.666667,<<"g">> => 0.666667,<<"r">> => 0.666667},#{<<"b">> => 0.25,<<"g">> => 1.0,<<"r">> => 0.25},#{<<"b">> => 1.0,<<"g">> => 1.0,<<"r">> => 1.0},#{<<"b">> => 0.666667,<<"g">> => 0.666667,<<"r">> => 0.666667},...],...],...},...]}}},...}}}},...} in application_master:init/4 line 138
+2020-08-08 02:24:49.906 [info] <0.44.0> Application lager started on node nonode@nohost
+2020-08-08 02:24:49.949 [info] <0.44.0> Application xmerl started on node nonode@nohost
+2020-08-08 02:24:50.099 [info] <0.44.0> Application sasl started on node nonode@nohost
+2020-08-08 02:24:50.139 [info] <0.44.0> Application tools started on node nonode@nohost
+2020-08-08 02:24:50.189 [info] <0.44.0> Application jsx started on node nonode@nohost
+2020-08-08 02:24:50.279 [info] <0.44.0> Application ranch started on node nonode@nohost
+2020-08-08 02:24:50.338 [info] <0.44.0> Application recon started on node nonode@nohost
+2020-08-08 02:24:50.821 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
+2020-08-08 02:24:50.822 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
+2020-08-08 02:24:50.845 [info] <0.44.0> Application amqp_client started on node nonode@nohost
+2020-08-08 02:24:50.852 [info] <0.44.0> Application amqp started on node nonode@nohost
+2020-08-08 02:24:50.904 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
+2020-08-08 02:25:27.003 [info] <0.44.0> Application lager started on node nonode@nohost
+2020-08-08 02:25:27.074 [info] <0.44.0> Application xmerl started on node nonode@nohost
+2020-08-08 02:25:27.217 [info] <0.44.0> Application sasl started on node nonode@nohost
+2020-08-08 02:25:27.271 [info] <0.44.0> Application tools started on node nonode@nohost
+2020-08-08 02:25:27.303 [info] <0.44.0> Application jsx started on node nonode@nohost
+2020-08-08 02:25:27.406 [info] <0.44.0> Application ranch started on node nonode@nohost
+2020-08-08 02:25:27.431 [info] <0.44.0> Application recon started on node nonode@nohost
+2020-08-08 02:25:27.934 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
+2020-08-08 02:25:27.935 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
+2020-08-08 02:25:27.957 [info] <0.44.0> Application amqp_client started on node nonode@nohost
+2020-08-08 02:25:27.967 [info] <0.44.0> Application amqp started on node nonode@nohost
+2020-08-08 02:25:28.019 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
+2020-08-08 02:25:28.124 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
+2020-08-08 02:25:28.225 [info] <0.44.0> Application jason started on node nonode@nohost
+2020-08-08 02:25:28.316 [info] <0.44.0> Application comeonin started on node nonode@nohost
+2020-08-08 02:25:28.316 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
+2020-08-08 02:25:28.380 [info] <0.44.0> Application connection started on node nonode@nohost
+2020-08-08 02:25:28.413 [info] <0.44.0> Application decimal started on node nonode@nohost
+2020-08-08 02:25:28.491 [info] <0.44.0> Application db_connection started on node nonode@nohost
+2020-08-08 02:25:28.557 [info] <0.44.0> Application postgrex started on node nonode@nohost
+2020-08-08 02:25:28.632 [info] <0.44.0> Application ecto started on node nonode@nohost
+2020-08-08 02:25:28.637 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
+2020-08-08 02:25:28.656 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
+2020-08-08 02:25:28.755 [info] <0.44.0> Application cowlib started on node nonode@nohost
+2020-08-08 02:25:28.776 [info] <0.44.0> Application cowboy started on node nonode@nohost
+2020-08-08 02:25:28.816 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
+2020-08-08 02:25:28.892 [info] <0.44.0> Application file_system started on node nonode@nohost
+2020-08-08 02:25:29.051 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
+2020-08-08 02:25:29.072 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
+2020-08-08 02:25:29.085 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
+2020-08-08 02:25:29.104 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
+2020-08-08 02:25:31.119 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
+2020-08-08 02:25:59.751 [error] <0.619.0>@Elixir.STPuzzleCoordinator.ConfigHandler:handle_call:224 gen_server 'Elixir.STPuzzleCoordinator.ConfigHandler' terminated with reason: no match of right hand value nil in 'Elixir.STPuzzleCoordinator.ConfigHandler':handle_call/3 line 224
+2020-08-08 02:25:59.953 [error] <0.619.0>@Elixir.STPuzzleCoordinator.ConfigHandler:handle_call:224 CRASH REPORT Process <0.619.0> with 0 neighbours crashed with reason: no match of right hand value nil in 'Elixir.STPuzzleCoordinator.ConfigHandler':handle_call/3 line 224
+2020-08-08 02:25:59.953 [error] <0.462.0>@Elixir.STPuzzleCoordinator.ConfigHandler:handle_call:224 Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at <0.619.0> exit with reason no match of right hand value nil in 'Elixir.STPuzzleCoordinator.ConfigHandler':handle_call/3 line 224 in context child_terminated
+2020-08-08 02:25:59.954 [error] <0.462.0> Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at <0.619.0> exit with reason {'EXIT',{{badmatch,{error,{already_started,<0.602.0>}}},[{'Elixir.STPuzzleCoordinator',initialize,0,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,15}]},{supervisor,do_start_child_i,3,[{file,"supervisor.erl"},{line,379}]},{supervisor,do_start_child,2,[{file,"supervisor.erl"},{line,365}]},{supervisor,restart,3,[{file,"supervisor.erl"},{line,768}]},{supervisor,restart,2,[{file,"supervisor.erl"},{line,723}]},{supervisor,handle_info,2,[{file,"supervisor.erl"},{line,574}]},...]}} in context start_error
+2020-08-08 02:25:59.955 [error] <0.462.0> Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at {restarting,<0.619.0>} exit with reason {'EXIT',{{badmatch,{error,{already_started,<0.602.0>}}},[{'Elixir.STPuzzleCoordinator',initialize,0,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,15}]},{supervisor,do_start_child_i,3,[{file,"supervisor.erl"},{line,379}]},{supervisor,do_start_child,2,[{file,"supervisor.erl"},{line,365}]},{supervisor,restart,3,[{file,"supervisor.erl"},{line,768}]},{supervisor,restart,2,[{file,"supervisor.erl"},{line,723}]},{supervisor,handle_cast,2,[{file,"supervisor.erl"},{line,557}]},...]}} in context start_error
+2020-08-08 02:25:59.956 [error] <0.462.0> Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at {restarting,<0.619.0>} exit with reason {'EXIT',{{badmatch,{error,{already_started,<0.602.0>}}},[{'Elixir.STPuzzleCoordinator',initialize,0,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,15}]},{supervisor,do_start_child_i,3,[{file,"supervisor.erl"},{line,379}]},{supervisor,do_start_child,2,[{file,"supervisor.erl"},{line,365}]},{supervisor,restart,3,[{file,"supervisor.erl"},{line,768}]},{supervisor,restart,2,[{file,"supervisor.erl"},{line,723}]},{supervisor,handle_cast,2,[{file,"supervisor.erl"},{line,557}]},...]}} in context start_error
+2020-08-08 02:25:59.956 [error] <0.462.0> Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at {restarting,<0.619.0>} exit with reason reached_max_restart_intensity in context shutdown
+2020-08-08 02:26:01.071 [error] <0.682.0> CRASH REPORT Process <0.682.0> with 0 neighbours exited with reason: {{{{{{badmatch,nil},[{'Elixir.STPuzzleCoordinator.ConfigHandler',handle_call,3,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,224}]},{gen_server,try_handle_call,4,[{file,"gen_server.erl"},{line,661}]},{gen_server,handle_msg,6,[{file,"gen_server.erl"},{line,690}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]},{'Elixir.GenServer',call,[{global,'Elixir.STPuzzleCoordinator.ConfigHandler'},{get_colors,nil},5000]}},{'Elixir.PuzzlespaceWeb.Endpoint',...}},...},...}
+2020-08-08 02:26:01.159 [error] <0.682.0> Cowboy stream 11 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.636.0> had its request process exit with reason: {{{{{badmatch,nil},[{'Elixir.STPuzzleCoordinator.ConfigHandler',handle_call,3,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,224}]},{gen_server,try_handle_call,4,[{file,"gen_server.erl"},{line,661}]},{gen_server,handle_msg,6,[{file,"gen_server.erl"},{line,690}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]},{'Elixir.GenServer',call,[{global,'Elixir.STPuzzleCoordinator.ConfigHandler'},{get_colors,nil},5000]}},{'Elixir.PuzzlespaceWeb.Endpoint',call,...}},...}
+2020-08-08 02:26:04.967 [error] <0.476.0> Supervisor 'Elixir.PuzzlespaceWeb.Endpoint' had child 'Elixir.Plug.Cowboy.Drainer' started with 'Elixir.Plug.Cowboy.Drainer':start_link([{refs,['Elixir.PuzzlespaceWeb.Endpoint.HTTP']}]) at <0.600.0> exit with reason killed in context shutdown_error
+2020-08-08 02:26:04.987 [info] <0.44.0> Application puzzlespace exited with reason: shutdown
+2020-08-08 02:28:57.302 [info] <0.44.0> Application lager started on node nonode@nohost
+2020-08-08 02:28:57.348 [info] <0.44.0> Application xmerl started on node nonode@nohost
+2020-08-08 02:28:57.460 [info] <0.44.0> Application sasl started on node nonode@nohost
+2020-08-08 02:28:57.503 [info] <0.44.0> Application tools started on node nonode@nohost
+2020-08-08 02:28:57.539 [info] <0.44.0> Application jsx started on node nonode@nohost
+2020-08-08 02:28:57.669 [info] <0.44.0> Application ranch started on node nonode@nohost
+2020-08-08 02:28:57.705 [info] <0.44.0> Application recon started on node nonode@nohost
+2020-08-08 02:28:58.212 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
+2020-08-08 02:28:58.212 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
+2020-08-08 02:28:58.235 [info] <0.44.0> Application amqp_client started on node nonode@nohost
+2020-08-08 02:28:58.242 [info] <0.44.0> Application amqp started on node nonode@nohost
+2020-08-08 02:28:58.277 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
+2020-08-08 02:28:58.361 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
+2020-08-08 02:28:58.421 [info] <0.44.0> Application jason started on node nonode@nohost
+2020-08-08 02:28:58.497 [info] <0.44.0> Application comeonin started on node nonode@nohost
+2020-08-08 02:28:58.497 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
+2020-08-08 02:28:58.567 [info] <0.44.0> Application connection started on node nonode@nohost
+2020-08-08 02:28:58.596 [info] <0.44.0> Application decimal started on node nonode@nohost
+2020-08-08 02:28:58.683 [info] <0.44.0> Application db_connection started on node nonode@nohost
+2020-08-08 02:28:58.748 [info] <0.44.0> Application postgrex started on node nonode@nohost
+2020-08-08 02:28:58.837 [info] <0.44.0> Application ecto started on node nonode@nohost
+2020-08-08 02:28:58.842 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
+2020-08-08 02:28:58.853 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
+2020-08-08 02:28:58.933 [info] <0.44.0> Application cowlib started on node nonode@nohost
+2020-08-08 02:28:58.948 [info] <0.44.0> Application cowboy started on node nonode@nohost
+2020-08-08 02:28:58.957 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
+2020-08-08 02:28:59.019 [info] <0.44.0> Application file_system started on node nonode@nohost
+2020-08-08 02:28:59.217 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
+2020-08-08 02:28:59.237 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
+2020-08-08 02:28:59.257 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
+2020-08-08 02:28:59.275 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
+2020-08-08 02:29:01.567 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
+2020-08-08 02:29:22.157 [error] <0.613.0>@Elixir.STPuzzleCoordinator.ConfigHandler:handle_call:224 gen_server 'Elixir.STPuzzleCoordinator.ConfigHandler' terminated with reason: no match of right hand value nil in 'Elixir.STPuzzleCoordinator.ConfigHandler':handle_call/3 line 224
+2020-08-08 02:29:22.387 [error] <0.613.0>@Elixir.STPuzzleCoordinator.ConfigHandler:handle_call:224 CRASH REPORT Process <0.613.0> with 0 neighbours crashed with reason: no match of right hand value nil in 'Elixir.STPuzzleCoordinator.ConfigHandler':handle_call/3 line 224
+2020-08-08 02:29:22.387 [error] <0.456.0>@Elixir.STPuzzleCoordinator.ConfigHandler:handle_call:224 Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at <0.613.0> exit with reason no match of right hand value nil in 'Elixir.STPuzzleCoordinator.ConfigHandler':handle_call/3 line 224 in context child_terminated
+2020-08-08 02:29:22.389 [error] <0.456.0> Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at <0.613.0> exit with reason {'EXIT',{{badmatch,{error,{already_started,<0.596.0>}}},[{'Elixir.STPuzzleCoordinator',initialize,0,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,15}]},{supervisor,do_start_child_i,3,[{file,"supervisor.erl"},{line,379}]},{supervisor,do_start_child,2,[{file,"supervisor.erl"},{line,365}]},{supervisor,restart,3,[{file,"supervisor.erl"},{line,768}]},{supervisor,restart,2,[{file,"supervisor.erl"},{line,723}]},{supervisor,handle_info,2,[{file,"supervisor.erl"},{line,574}]},...]}} in context start_error
+2020-08-08 02:29:22.392 [error] <0.456.0> Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at {restarting,<0.613.0>} exit with reason {'EXIT',{{badmatch,{error,{already_started,<0.596.0>}}},[{'Elixir.STPuzzleCoordinator',initialize,0,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,15}]},{supervisor,do_start_child_i,3,[{file,"supervisor.erl"},{line,379}]},{supervisor,do_start_child,2,[{file,"supervisor.erl"},{line,365}]},{supervisor,restart,3,[{file,"supervisor.erl"},{line,768}]},{supervisor,restart,2,[{file,"supervisor.erl"},{line,723}]},{supervisor,handle_cast,2,[{file,"supervisor.erl"},{line,557}]},...]}} in context start_error
+2020-08-08 02:29:22.392 [error] <0.456.0> Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at {restarting,<0.613.0>} exit with reason {'EXIT',{{badmatch,{error,{already_started,<0.596.0>}}},[{'Elixir.STPuzzleCoordinator',initialize,0,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,15}]},{supervisor,do_start_child_i,3,[{file,"supervisor.erl"},{line,379}]},{supervisor,do_start_child,2,[{file,"supervisor.erl"},{line,365}]},{supervisor,restart,3,[{file,"supervisor.erl"},{line,768}]},{supervisor,restart,2,[{file,"supervisor.erl"},{line,723}]},{supervisor,handle_cast,2,[{file,"supervisor.erl"},{line,557}]},...]}} in context start_error
+2020-08-08 02:29:22.392 [error] <0.456.0> Supervisor 'Elixir.Puzzlespace.Supervisor' had child 'Elixir.STPuzzleCoordinator' started with 'Elixir.STPuzzleCoordinator':initialize() at {restarting,<0.613.0>} exit with reason reached_max_restart_intensity in context shutdown
+2020-08-08 02:29:23.164 [error] <0.665.0> CRASH REPORT Process <0.665.0> with 0 neighbours exited with reason: {{{{{{badmatch,nil},[{'Elixir.STPuzzleCoordinator.ConfigHandler',handle_call,3,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,224}]},{gen_server,try_handle_call,4,[{file,"gen_server.erl"},{line,661}]},{gen_server,handle_msg,6,[{file,"gen_server.erl"},{line,690}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]},{'Elixir.GenServer',call,[{global,'Elixir.STPuzzleCoordinator.ConfigHandler'},{get_colors,<<"bridges">>},5000]}},{'Elixir.PuzzlespaceWeb.Endpoint',...}},...},...}
+2020-08-08 02:29:23.197 [error] <0.665.0> Cowboy stream 13 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.624.0> had its request process exit with reason: {{{{{badmatch,nil},[{'Elixir.STPuzzleCoordinator.ConfigHandler',handle_call,3,[{file,"lib/puzzlespace/puzzles/stpuzzle/s_t_puzzle_coordinator.ex"},{line,224}]},{gen_server,try_handle_call,4,[{file,"gen_server.erl"},{line,661}]},{gen_server,handle_msg,6,[{file,"gen_server.erl"},{line,690}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]},{'Elixir.GenServer',call,[{global,'Elixir.STPuzzleCoordinator.ConfigHandler'},{get_colors,<<"bridges">>},5000]}},{'Elixir.PuzzlespaceWeb.Endpoint',...}},...}
+2020-08-08 02:29:27.408 [error] <0.470.0> Supervisor 'Elixir.PuzzlespaceWeb.Endpoint' had child 'Elixir.Plug.Cowboy.Drainer' started with 'Elixir.Plug.Cowboy.Drainer':start_link([{refs,['Elixir.PuzzlespaceWeb.Endpoint.HTTP']}]) at <0.594.0> exit with reason killed in context shutdown_error
+2020-08-08 02:29:27.426 [info] <0.44.0> Application puzzlespace exited with reason: shutdown
+2020-08-08 02:30:33.599 [info] <0.44.0> Application lager started on node nonode@nohost
+2020-08-08 02:30:33.640 [info] <0.44.0> Application xmerl started on node nonode@nohost
+2020-08-08 02:30:33.759 [info] <0.44.0> Application sasl started on node nonode@nohost
+2020-08-08 02:30:33.798 [info] <0.44.0> Application tools started on node nonode@nohost
+2020-08-08 02:30:33.834 [info] <0.44.0> Application jsx started on node nonode@nohost
+2020-08-08 02:30:33.951 [info] <0.44.0> Application ranch started on node nonode@nohost
+2020-08-08 02:30:33.985 [info] <0.44.0> Application recon started on node nonode@nohost
+2020-08-08 02:30:34.464 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
+2020-08-08 02:30:34.464 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
+2020-08-08 02:30:34.490 [info] <0.44.0> Application amqp_client started on node nonode@nohost
+2020-08-08 02:30:34.505 [info] <0.44.0> Application amqp started on node nonode@nohost
+2020-08-08 02:30:34.546 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
+2020-08-08 02:30:34.638 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
+2020-08-08 02:30:34.719 [info] <0.44.0> Application jason started on node nonode@nohost
+2020-08-08 02:30:34.787 [info] <0.44.0> Application comeonin started on node nonode@nohost
+2020-08-08 02:30:34.788 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
+2020-08-08 02:30:34.850 [info] <0.44.0> Application connection started on node nonode@nohost
+2020-08-08 02:30:34.887 [info] <0.44.0> Application decimal started on node nonode@nohost
+2020-08-08 02:30:34.971 [info] <0.44.0> Application db_connection started on node nonode@nohost
+2020-08-08 02:30:35.072 [info] <0.44.0> Application postgrex started on node nonode@nohost
+2020-08-08 02:30:35.151 [info] <0.44.0> Application ecto started on node nonode@nohost
+2020-08-08 02:30:35.155 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
+2020-08-08 02:30:35.167 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
+2020-08-08 02:30:35.240 [info] <0.44.0> Application cowlib started on node nonode@nohost
+2020-08-08 02:30:35.261 [info] <0.44.0> Application cowboy started on node nonode@nohost
+2020-08-08 02:30:35.269 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
+2020-08-08 02:30:35.348 [info] <0.44.0> Application file_system started on node nonode@nohost
+2020-08-08 02:30:35.498 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
+2020-08-08 02:30:35.518 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
+2020-08-08 02:30:35.538 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
+2020-08-08 02:30:35.553 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
+2020-08-08 02:30:37.562 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
+2020-08-08 16:39:15.549 [info] <0.44.0> Application lager started on node nonode@nohost
+2020-08-08 16:39:15.593 [info] <0.44.0> Application xmerl started on node nonode@nohost
+2020-08-08 16:39:15.690 [info] <0.44.0> Application sasl started on node nonode@nohost
+2020-08-08 16:39:15.727 [info] <0.44.0> Application tools started on node nonode@nohost
+2020-08-08 16:39:15.745 [info] <0.44.0> Application jsx started on node nonode@nohost
+2020-08-08 16:39:15.826 [info] <0.44.0> Application ranch started on node nonode@nohost
+2020-08-08 16:39:15.843 [info] <0.44.0> Application recon started on node nonode@nohost
+2020-08-08 16:39:16.170 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
+2020-08-08 16:39:16.170 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
+2020-08-08 16:39:16.215 [info] <0.44.0> Application amqp_client started on node nonode@nohost
+2020-08-08 16:39:16.242 [info] <0.44.0> Application amqp started on node nonode@nohost
+2020-08-08 16:39:16.255 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
+2020-08-08 16:39:16.312 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
+2020-08-08 16:39:16.345 [info] <0.44.0> Application jason started on node nonode@nohost
+2020-08-08 16:39:16.372 [info] <0.44.0> Application comeonin started on node nonode@nohost
+2020-08-08 16:39:16.372 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
+2020-08-08 16:39:16.397 [info] <0.44.0> Application connection started on node nonode@nohost
+2020-08-08 16:39:16.412 [info] <0.44.0> Application decimal started on node nonode@nohost
+2020-08-08 16:39:16.479 [info] <0.44.0> Application db_connection started on node nonode@nohost
+2020-08-08 16:39:16.570 [info] <0.44.0> Application postgrex started on node nonode@nohost
+2020-08-08 16:39:16.619 [info] <0.44.0> Application ecto started on node nonode@nohost
+2020-08-08 16:39:16.629 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
+2020-08-08 16:39:16.634 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
+2020-08-08 16:39:16.664 [info] <0.44.0> Application cowlib started on node nonode@nohost
+2020-08-08 16:39:16.699 [info] <0.44.0> Application cowboy started on node nonode@nohost
+2020-08-08 16:39:16.716 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
+2020-08-08 16:39:16.733 [info] <0.44.0> Application file_system started on node nonode@nohost
+2020-08-08 16:39:16.889 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
+2020-08-08 16:39:16.909 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
+2020-08-08 16:39:16.951 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
+2020-08-08 16:39:16.965 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
+2020-08-08 16:39:18.841 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
+2020-08-08 16:39:48.589 [error] <0.610.0> CRASH REPORT Process <0.610.0> with 0 neighbours exited with reason: {{{{#{'__exception__' => true,'__struct__' => 'Elixir.MatchError',term => {error,<<"is nil">>}},[{'Elixir.PuzzlespaceWeb.PageController',list_saves,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,70}]},{'Elixir.PuzzlespaceWeb.PageController',action,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,1}]},{'Elixir.PuzzlespaceWeb.PageController',phoenix_controller_pipeline,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,1}]},{'Elixir.Phoenix.Router',...},...]},...},...},...}
+2020-08-08 16:39:48.798 [error] <0.610.0> Cowboy stream 1 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.609.0> had its request process exit with reason: {{{#{'__exception__' => true,'__struct__' => 'Elixir.MatchError',term => {error,<<"is nil">>}},[{'Elixir.PuzzlespaceWeb.PageController',list_saves,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,70}]},{'Elixir.PuzzlespaceWeb.PageController',action,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,1}]},{'Elixir.PuzzlespaceWeb.PageController',phoenix_controller_pipeline,2,[{file,"lib/puzzlespace_web/controllers/page_controller.ex"},{line,1}]},{'Elixir.Phoenix.Router',...},...]},...},...}
+2020-08-09 19:30:18.563 [info] <0.44.0> Application lager started on node nonode@nohost
+2020-08-09 19:30:18.607 [info] <0.44.0> Application xmerl started on node nonode@nohost
+2020-08-09 19:30:18.693 [info] <0.44.0> Application sasl started on node nonode@nohost
+2020-08-09 19:30:18.722 [info] <0.44.0> Application tools started on node nonode@nohost
+2020-08-09 19:30:18.735 [info] <0.44.0> Application jsx started on node nonode@nohost
+2020-08-09 19:30:18.787 [info] <0.44.0> Application ranch started on node nonode@nohost
+2020-08-09 19:30:18.800 [info] <0.44.0> Application recon started on node nonode@nohost
+2020-08-09 19:30:19.041 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
+2020-08-09 19:30:19.041 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
+2020-08-09 19:30:19.097 [info] <0.44.0> Application amqp_client started on node nonode@nohost
+2020-08-09 19:30:19.103 [info] <0.44.0> Application amqp started on node nonode@nohost
+2020-08-09 19:30:19.114 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
+2020-08-09 19:30:19.162 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
+2020-08-09 19:30:19.191 [info] <0.44.0> Application jason started on node nonode@nohost
+2020-08-09 19:30:19.212 [info] <0.44.0> Application comeonin started on node nonode@nohost
+2020-08-09 19:30:19.213 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
+2020-08-09 19:30:19.238 [info] <0.44.0> Application connection started on node nonode@nohost
+2020-08-09 19:30:19.249 [info] <0.44.0> Application decimal started on node nonode@nohost
+2020-08-09 19:30:19.268 [info] <0.44.0> Application db_connection started on node nonode@nohost
+2020-08-09 19:30:19.295 [info] <0.44.0> Application postgrex started on node nonode@nohost
+2020-08-09 19:30:19.322 [info] <0.44.0> Application ecto started on node nonode@nohost
+2020-08-09 19:30:19.325 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
+2020-08-09 19:30:19.330 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
+2020-08-09 19:30:19.359 [info] <0.44.0> Application cowlib started on node nonode@nohost
+2020-08-09 19:30:19.394 [info] <0.44.0> Application cowboy started on node nonode@nohost
+2020-08-09 19:30:19.396 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
+2020-08-09 19:30:19.424 [info] <0.44.0> Application file_system started on node nonode@nohost
+2020-08-09 19:30:19.521 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
+2020-08-09 19:30:19.539 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
+2020-08-09 19:30:19.547 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
+2020-08-09 19:30:19.558 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
+2020-08-09 19:30:21.019 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
+2020-08-09 19:30:55.028 [error] <0.879.0> CRASH REPORT Process <0.879.0> with 0 neighbours exited with reason: {{{{#{'__exception__' => true,'__struct__' => 'Elixir.Phoenix.Router.NoRouteError',conn => #{'__struct__' => 'Elixir.Plug.Conn',adapter => {'Elixir.Plug.Cowboy.Conn',#{bindings => #{},body_length => 0,cert => undefined,has_body => false,headers => #{<<"accept">> => <<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>,<<"accept-encoding">> => <<"gzip, deflate">>,<<"accept-language">> => <<"en-US,en;q=0.5">>,<<"connection">> => <<"keep-alive">>,<<"cookie">> => <<...>>,...},...}},...},...},...},...},...},...}
+2020-08-09 19:30:55.405 [error] <0.879.0> Cowboy stream 4 with ranch listener 'Elixir.PuzzlespaceWeb.Endpoint.HTTP' and connection process <0.866.0> had its request process exit with reason: {{{#{'__exception__' => true,'__struct__' => 'Elixir.Phoenix.Router.NoRouteError',conn => #{'__struct__' => 'Elixir.Plug.Conn',adapter => {'Elixir.Plug.Cowboy.Conn',#{bindings => #{},body_length => 0,cert => undefined,has_body => false,headers => #{<<"accept">> => <<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>,<<"accept-encoding">> => <<"gzip, deflate">>,<<"accept-language">> => <<"en-US,en;q=0.5">>,<<"connection">> => <<"keep-alive">>,<<"cookie">> => <<"...">>,...},...}},...},...},...},...},...}
+2020-08-09 19:38:08.958 [info] <0.44.0> Application lager started on node nonode@nohost
+2020-08-09 19:38:08.983 [info] <0.44.0> Application xmerl started on node nonode@nohost
+2020-08-09 19:38:09.035 [info] <0.44.0> Application sasl started on node nonode@nohost
+2020-08-09 19:38:09.058 [info] <0.44.0> Application tools started on node nonode@nohost
+2020-08-09 19:38:09.080 [info] <0.44.0> Application jsx started on node nonode@nohost
+2020-08-09 19:38:09.108 [info] <0.44.0> Application ranch started on node nonode@nohost
+2020-08-09 19:38:09.125 [info] <0.44.0> Application recon started on node nonode@nohost
+2020-08-09 19:38:09.342 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
+2020-08-09 19:38:09.342 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
+2020-08-09 19:38:09.354 [info] <0.44.0> Application amqp_client started on node nonode@nohost
+2020-08-09 19:38:09.359 [info] <0.44.0> Application amqp started on node nonode@nohost
+2020-08-09 19:38:09.372 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
+2020-08-09 19:38:09.399 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
+2020-08-09 19:38:09.415 [info] <0.44.0> Application jason started on node nonode@nohost
+2020-08-09 19:38:09.444 [info] <0.44.0> Application comeonin started on node nonode@nohost
+2020-08-09 19:38:09.444 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
+2020-08-09 19:38:09.464 [info] <0.44.0> Application connection started on node nonode@nohost
+2020-08-09 19:38:09.479 [info] <0.44.0> Application decimal started on node nonode@nohost
+2020-08-09 19:38:09.502 [info] <0.44.0> Application db_connection started on node nonode@nohost
+2020-08-09 19:38:09.526 [info] <0.44.0> Application postgrex started on node nonode@nohost
+2020-08-09 19:38:09.555 [info] <0.44.0> Application ecto started on node nonode@nohost
+2020-08-09 19:38:09.558 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
+2020-08-09 19:38:09.562 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
+2020-08-09 19:38:09.593 [info] <0.44.0> Application cowlib started on node nonode@nohost
+2020-08-09 19:38:09.599 [info] <0.44.0> Application cowboy started on node nonode@nohost
+2020-08-09 19:38:09.602 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
+2020-08-09 19:38:09.625 [info] <0.44.0> Application file_system started on node nonode@nohost
+2020-08-09 19:38:09.702 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
+2020-08-09 19:38:09.728 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
+2020-08-09 19:38:09.737 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
+2020-08-09 19:38:09.743 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
+2020-08-09 19:38:11.121 [info] <0.44.0> Application puzzlespace started on node nonode@nohost
+2020-08-09 19:49:45.115 [info] <0.44.0> Application lager started on node nonode@nohost
+2020-08-09 19:49:45.141 [info] <0.44.0> Application xmerl started on node nonode@nohost
+2020-08-09 19:49:45.191 [info] <0.44.0> Application sasl started on node nonode@nohost
+2020-08-09 19:49:45.213 [info] <0.44.0> Application tools started on node nonode@nohost
+2020-08-09 19:49:45.229 [info] <0.44.0> Application jsx started on node nonode@nohost
+2020-08-09 19:49:45.248 [info] <0.44.0> Application ranch started on node nonode@nohost
+2020-08-09 19:49:45.263 [info] <0.44.0> Application recon started on node nonode@nohost
+2020-08-09 19:49:45.459 [info] <0.44.0> Application credentials_obfuscation started on node nonode@nohost
+2020-08-09 19:49:45.459 [info] <0.44.0> Application rabbit_common started on node nonode@nohost
+2020-08-09 19:49:45.472 [info] <0.44.0> Application amqp_client started on node nonode@nohost
+2020-08-09 19:49:45.476 [info] <0.44.0> Application amqp started on node nonode@nohost
+2020-08-09 19:49:45.492 [info] <0.44.0> Application telemetry_metrics started on node nonode@nohost
+2020-08-09 19:49:45.525 [info] <0.44.0> Application telemetry_poller started on node nonode@nohost
+2020-08-09 19:49:45.541 [info] <0.44.0> Application jason started on node nonode@nohost
+2020-08-09 19:49:45.569 [info] <0.44.0> Application comeonin started on node nonode@nohost
+2020-08-09 19:49:45.570 [info] <0.44.0> Application pbkdf2_elixir started on node nonode@nohost
+2020-08-09 19:49:45.590 [info] <0.44.0> Application connection started on node nonode@nohost
+2020-08-09 19:49:45.604 [info] <0.44.0> Application decimal started on node nonode@nohost
+2020-08-09 19:49:45.630 [info] <0.44.0> Application db_connection started on node nonode@nohost
+2020-08-09 19:49:45.661 [info] <0.44.0> Application postgrex started on node nonode@nohost
+2020-08-09 19:49:45.683 [info] <0.44.0> Application ecto started on node nonode@nohost
+2020-08-09 19:49:45.686 [info] <0.44.0> Application ecto_sql started on node nonode@nohost
+2020-08-09 19:49:45.691 [info] <0.44.0> Application phoenix_html started on node nonode@nohost
+2020-08-09 19:49:45.720 [info] <0.44.0> Application cowlib started on node nonode@nohost
+2020-08-09 19:49:45.727 [info] <0.44.0> Application cowboy started on node nonode@nohost
+2020-08-09 19:49:45.729 [info] <0.44.0> Application plug_cowboy started on node nonode@nohost
+2020-08-09 19:49:45.748 [info] <0.44.0> Application file_system started on node nonode@nohost
+2020-08-09 19:49:45.817 [info] <0.44.0> Application phoenix_live_reload started on node nonode@nohost
+2020-08-09 19:49:45.846 [info] <0.44.0> Application phoenix_live_view started on node nonode@nohost
+2020-08-09 19:49:45.858 [info] <0.44.0> Application phoenix_live_dashboard started on node nonode@nohost
+2020-08-09 19:49:45.864 [info] <0.44.0> Application phoenix_ecto started on node nonode@nohost
+2020-08-09 19:49:46.992 [info] <0.44.0> Application puzzlespace started on node nonode@nohost

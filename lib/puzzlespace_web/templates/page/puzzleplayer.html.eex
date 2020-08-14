@@ -6,16 +6,25 @@
 <div id="colours" style="display: none"><%= @colours %></div>
 <script>
   const canvas = document.getElementById("game");
-   function draw_game(detail){
+  const slotid = document.getElementById("slotid").innerHTML
+  function draw_game(detail){
      console.log(window.auth_token)
      let drawing_api = detail.dpi
      let interaction_handler = detail.ih
+     let Socket = detail.socket
+     let socket = new Socket("/puzzlesocket",{params: {auth_token: window.auth_token}})
+     socket.connect()
+
+     let channel = socket.channel(`stpuzz:${slotid}`, {})
+     channel.join()
+      .receive("ok", resp => { console.log("Joined successfully", resp) })
+      .receive("error", resp => { console.log("Unable to join", resp) })
      let instructions = document.getElementById("instructions").textContent;
      instructions = JSON.parse(instructions);
      console.log(drawing_api)
-     let drawapi = new drawing_api(canvas);
+     let drawapi = new drawing_api(canvas,channel);
      drawapi.dispatch(instructions);
-     let interface = new interaction_handler(canvas);
+     let interface = new interaction_handler(canvas,channel);
    }
   document.addEventListener("imports_complete",x => draw_game(x.detail))
  

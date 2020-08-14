@@ -14,6 +14,7 @@ defmodule Puzzlespace.Application do
       PuzzlespaceWeb.Endpoint,
       STPuzzleCoordinator,
       Puzzlespace.SessionHandler,
+      {Phoenix.PubSub, [name: Puzzlespace.PubSub, adapter: Phoenix.PubSub.PG2]}
       # Starts a worker by calling: Puzzlespace.Worker.start_link(arg)
       # {Puzzlespace.Worker, arg},
     ]

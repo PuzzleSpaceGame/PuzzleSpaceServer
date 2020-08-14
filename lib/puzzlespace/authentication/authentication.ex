@@ -1,6 +1,12 @@
 defmodule PuzzlespaceWeb.Authentication do
   alias Puzzlespace.User
   alias Puzzlespace.AuthToken
+  alias Puzzlespace.SessionHandler
+
+  def get_authenticated_user(token) do
+    SessionHandler.get_authenticated_user(token,SessionHandler)
+  end
+  
   def login(%{"username"=>username,"userpass"=>userpass}) do
     case authenticate(username,userpass) do
       {:ok,user} -> 

@@ -15,8 +15,7 @@ config :puzzlespace, PuzzlespaceWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "yJYIj8hwEFo80caREeL0rW59YoASCsn2jOpA1SzqzEYNSAOoB+2Uw5rtK7fID8yj",
   render_errors: [view: PuzzlespaceWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Puzzlespace.PubSub, adapter: Phoenix.PubSub.PG2]
-
+  pubsub_server: Puzzlespace.PubSub
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

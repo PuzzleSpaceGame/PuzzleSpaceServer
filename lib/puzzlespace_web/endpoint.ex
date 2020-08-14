@@ -4,7 +4,7 @@ defmodule PuzzlespaceWeb.Endpoint do
   socket "/puzzlesocket", PuzzlespaceWeb.PuzzleSocket,
     websocket: true,
     longpoll: false
-
+  
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phx.digest

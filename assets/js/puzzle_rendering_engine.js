@@ -1,7 +1,7 @@
-export default function(canvas){
+export default function(canvas,channel){
     "use strict"; 
     this.count = 0
-    canvas.addEventListener("draw_update", x=> this.dispatch(x.detail))
+    channel.on("draw_update", x=> this.dispatch(x.body))
     this.dispatch = element =>{
         if(element.won){
             document.getElementById("game_status").innerHTML = "Puzzle Complete!"

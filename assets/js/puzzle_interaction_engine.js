@@ -1,26 +1,10 @@
-export default function(canvas){
+export default function(canvas,channel){
     this.events = []
     this.handle_interactions = () => {
         console.log(this.events);
         let events = this.events;
-        fetch("/puzzleapi/update",
-            {
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "x-csrf-token": document.getElementById("csrf").innerHTML
-                },
-                method: "POST",
-                body: JSON.stringify(
-                    {
-                        user_input:events,
-                        slotid: document.getElementById("slotid").innerHTML
-                    }
-                )
-            }
-        ).then(x => x.json()).then(x => {
-            const event = new CustomEvent("draw_update",{detail: x})
-            canvas.dispatchEvent(event)
+        channel.push("user_input",{
+                body: JSON.stringify({user_input:events})
         })
         this.events = []
     }

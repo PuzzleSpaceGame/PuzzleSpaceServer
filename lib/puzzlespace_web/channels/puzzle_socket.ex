@@ -1,6 +1,7 @@
 defmodule PuzzlespaceWeb.PuzzleSocket do
   use Phoenix.Socket
-
+  alias PuzzlespaceWeb.Authentication
+  alias Puzzlespace.User
   ## Channels
   channel "stpuzz:*", PuzzlespaceWeb.STPuzzChannel
 
@@ -15,8 +16,16 @@ defmodule PuzzlespaceWeb.PuzzleSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket, _connect_info) do
-    {:ok, socket}
+  def connect(%{"auth_token"=>authtoken}, socket, _connect_info) do
+    case Authentication.get_authenticated_user(authtoken) do
+      nil -> :error
+      uid -> 
+        {:ok,user} = User.from_id(uid)
+        socket = 
+          socket
+          |> assign(:user,user)
+        {:ok,socket}
+    end
   end
 
   # Socket id's are topics that allow you to identify all sockets for a given user:
@@ -29,5 +38,5 @@ defmodule PuzzlespaceWeb.PuzzleSocket do
   #     PuzzlespaceWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
-  def id(_socket), do: nil
+  def id(socket), do: "user_socket:#{socket.assigns.user.id}"
 end

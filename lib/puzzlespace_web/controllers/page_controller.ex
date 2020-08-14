@@ -66,7 +66,7 @@ defmodule PuzzlespaceWeb.PageController do
     end
   end
 
-  def logout_many(conn, %{"signout_some" => "Signout Selected","tokens" = tokens} = params) do
+  def logout_many(conn, %{"signout_some" => "Signout Selected","tokens" => tokens}) do
     tokens
     |> Enum.map(fn token -> 
       PuzzlespaceWeb.Authentication.logout(token)

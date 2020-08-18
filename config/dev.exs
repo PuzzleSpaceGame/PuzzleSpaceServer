@@ -230,6 +230,17 @@ config STPuzzleCoordinator,
 config Puzzlespace.Authentication,
   token_lifespan: 60*60*24
 
+config Puzzlespace.Relationship,
+  titles: %{
+    "Founder" => ["*"]
+  },
+  structures: %{
+    "Club" => %{
+      "Leader" => ["admin:*","access_saveslot:*"],
+      "Member" => ["access_saveslot:*"]
+    }
+  }
+  
 config :puzzlespace, Puzzlespace.Repo,
   migration_primary_key: [name: :id, type: :binary_id, autogenerate: true]
 

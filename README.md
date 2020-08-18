@@ -1,20 +1,25 @@
 # Puzzlespace
 
-To start your Phoenix server:
+##Permissions:
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+Permissions can use the wildcard * to represent a full set of permissions
+at a certain level. So "*" by itself would effectively grant all permissions,
+while access_saveslot:* would grant access to all saveslots
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Organization Permissions | Description
+--- | ---
+admin:\* | Permissions related to administration of an organization. Grant with caution
+admin:delete | deletes the organization
+admin:rename | renames the organization
+admin:create_title | permission to create titles
+manage:\* | Permissions related to management of an organization
+manage:grant_permission:{specified permission} | assign users specified permissions/invite new users
+manage:grant_permission:\* | \* is limited to permissions a given entity already has
+manage:grant_title:{title} | assign users/invite new users to specified title. \* is not valid
+manage:revoke_permission:{specified permission} | allows revocation of specified permissions
+manage:revoke_title:{title} | revoke title of other users
+puzzle:\* | Permissions related to playing puzzles 
+puzzle:access_saveslot:{slotid} | play using the specified saveslot
+puzzle:create_saveslot | create new saveslots
+puzzle:delete_saveslot | delete saveslots
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix

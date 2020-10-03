@@ -1,0 +1,17 @@
+<h1> <%= @org.name %> </h1>
+
+<%= render_titles(@org.org_entity) %>
+<%= if Puzzlespace.Permissions.granted?(@user.user_entity,@org.org_entity,["manage","grant_title"]) do %>
+<h2> Invite New Members: </h2>
+<form method=="POST" onsubmit="formSubmit(event,this); return false">
+  <input type="hidden" name="_csrf_token" value="<%= @csrf %>">
+  <input type="hidden" name="org_id" value="<%= @org.id %>">
+  <input type="text" name="username">
+  <select name="title">
+    <%= for title <- Puzzlespace.Entity.can_grant(@org.org_entity) do %>
+      <option value="<%= title %>"><%=title%></option>
+    <% end %>
+  <input type="submit" name="Invite" value="Invite">
+</form>
+<% end %>
+<%= render_mailbox(@user.user_entity,@org.org_entity,@csrf) %>

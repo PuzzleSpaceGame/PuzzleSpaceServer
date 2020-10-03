@@ -230,14 +230,17 @@ config STPuzzleCoordinator,
 config Puzzlespace.Authentication,
   token_lifespan: 60*60*24
 
-config Puzzlespace.Relationship,
+config Puzzlespace.Permissions,
   titles: %{
-    "Founder" => ["*"]
+    "Founder" => [{"*"}]
   },
   structures: %{
     "Club" => %{
-      "Leader" => ["admin:*","access_saveslot:*"],
-      "Member" => ["access_saveslot:*"]
+      "Officer" => [{"manage","*"},{"puzzle","*"},],
+      "Member" => [{"puzzle","*"}]
+    },
+    "Union" => %{
+      "Member" => [{"manage","*"},{"puzzle","*"}]
     }
   }
   

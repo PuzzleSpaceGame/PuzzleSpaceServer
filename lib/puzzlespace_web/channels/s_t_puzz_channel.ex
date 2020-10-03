@@ -5,7 +5,7 @@ defmodule PuzzlespaceWeb.STPuzzChannel do
   @impl true
   def join("stpuzz:" <> slotid, _message, socket) do
     {:ok,slot} = Puzzlespace.SaveSlot.from_id(slotid)
-    case Permissions.request_permission(socket.assigns.user.user_entity,slot.owner,:access_saveslots) do
+    case Permissions.request_permission(socket.assigns.user.user_entity,slot.owner,["puzzle","access_saveslot",slotid]) do
       {:denied,reason} -> {:error, %{reason: reason}}
       :granted -> {:ok,assign(socket,:slotid,slotid)}
     end

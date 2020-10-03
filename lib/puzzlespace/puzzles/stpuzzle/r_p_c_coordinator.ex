@@ -65,7 +65,7 @@ defmodule RPCCoordinator do
         {:basic_deliver,_payload,%{delivery_tag: de_tag}} -> 
           AMQP.Basic.reject(chan,de_tag)
           await_rpc_response(chan,inbox,correlation_id)
-        x ->
+        _ ->
           await_rpc_response(chan,inbox,correlation_id)
       end
     end

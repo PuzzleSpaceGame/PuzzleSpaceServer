@@ -1,8 +1,12 @@
 <section class="phx-hero">
   <h1>Welcome to Puzzlespace!</h1>
   <p>A game that exists pretty much purely as a tech demo</p>
+  <%= case  Puzzlespace.User.from_id(@conn.assigns[:auth_uid]) do %>
+    <% {:error, _} -> %> Want to play? <a href="/login">Login or Register</a> now
+    <% {:ok, x} -> %> Ready to play?  <a href="/puzzle/saves">Make a new saveslot and start a new game</a>
+  <% end %>
 </section>
-
+<section>
 <section class="row">
   <article class="column">
     <h2>About Puzzlespace</h2>

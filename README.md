@@ -22,4 +22,6 @@ puzzle:\* | Permissions related to playing puzzles
 puzzle:access_saveslot:{slotid} | play using the specified saveslot
 puzzle:create_saveslot | create new saveslots
 puzzle:delete_saveslot | delete saveslots
-
+mailbox:view:type | view mail of a given type
+mailbox:respond:type | interact with mail of a given type
+mailbox:delete:type | delete mail of a given type

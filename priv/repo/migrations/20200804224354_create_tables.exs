@@ -38,5 +38,27 @@ defmodule Puzzlespace.Repo.Migrations.CreateTables do
       timestamps()
     end
 
+    create table(:relationships) do
+      add :primary_id, references(:entities)
+      add :title, :string
+      add :reciever_id, references(:entities)
+      add :permissions, {:array, {:array, :string}}
+      timestamps()
+    end
+    create unique_index(:relationships,[:primary_id,:reciever_id,:title], name: :"duplicate title assignment")
+
+    create table(:organizations) do
+      add :name, :string
+      add :entity_id, references(:entities)
+      timestamps()
+    end
+    create unique_index(:organizations,[:name])
+
+    create table(:notifications) do
+      add :sender_id, references(:entities)
+      add :reciever_id, references(:entities)
+      add :payload, {:map, :string}
+      timestamps()
+    end
   end
 end

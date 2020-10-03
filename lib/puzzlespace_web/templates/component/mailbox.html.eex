@@ -1,0 +1,9 @@
+<h2> Messages: </h2>
+<h3>Inbox</h3>
+<%=
+  for x <- @inbox, do: render_notification(x,@viewer,@owner,@csrf)
+%>
+<h3>Outbox</h3>
+<%=
+  for x <- @outbox, do: render_notification(x,@viewer,@owner,@csrf)
+%>

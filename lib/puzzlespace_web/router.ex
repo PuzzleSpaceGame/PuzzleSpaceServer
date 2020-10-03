@@ -13,7 +13,6 @@ defmodule PuzzlespaceWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
     plug :fetch_session
-    plug :protect_from_forgery
     plug PuzzlespaceWeb.SessionPlug
   end
 
@@ -34,6 +33,20 @@ defmodule PuzzlespaceWeb.Router do
     get "/msg/:messenger", TestController, :show
     get "/debug", TestController, :debug
     get "/", TestController, :index
+  end
+
+  scope "/social", PuzzlespaceWeb do
+    pipe_through :browser
+    get "/profile", PageController, :my_profile
+    get "/profile/:user_id", PageController, :profile
+    get "/team/new", PageController, :new_team
+    post "/team/new", PageController, :create_team
+    get "/team/:org_id", PageController, :org_profile
+  end
+
+  scope "/mailbox", PuzzlespaceWeb do
+    pipe_through :api
+    post "/api", PageController, :mail_api
   end
 
   scope "/puzzle", PuzzlespaceWeb do

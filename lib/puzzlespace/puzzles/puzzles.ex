@@ -4,7 +4,7 @@ defmodule Puzzlespace.Puzzles do
   alias Puzzlespace.Completion
 
   def newgame(entity,saveslot,tag,params \\ %{}) do
-    if_permitted(entity, saveslot.owner, :access_saveslots) do
+    if_permitted(entity, saveslot.owner, ["puzzle","create_saveslot"]) do
       pcord = STPuzzleCoordinator
       {draw,gamestate} = pcord.new_game(String.to_existing_atom(tag),params)
       SaveSlot.save(saveslot,tag,gamestate,0)
@@ -13,7 +13,7 @@ defmodule Puzzlespace.Puzzles do
   end
 
   def loadgame(entity,saveslot) do
-    if_permitted(entity, saveslot.owner, :access_saveslots) do
+    if_permitted(entity, saveslot.owner, ["puzzle","access_saveslot",saveslot]) do
       pcord = STPuzzleCoordinator
       {puzzle,gamestate} = SaveSlot.load(saveslot)
       {draw,gamestate,status} = pcord.redraw(String.to_existing_atom(saveslot.puzzle),gamestate)
@@ -28,7 +28,7 @@ defmodule Puzzlespace.Puzzles do
   end
 
   def update(entity,saveslot,input) do
-    if_permitted(entity, saveslot.owner, :access_saveslots) do
+    if_permitted(entity, saveslot.owner, ["puzzle","access_saveslot"]) do
       pcord = STPuzzleCoordinator
       {puzzle,gamestate} = SaveSlot.load(saveslot)
       {draw,gamestate,status} = pcord.update(String.to_existing_atom(saveslot.puzzle),gamestate,input)

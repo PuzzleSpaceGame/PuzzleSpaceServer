@@ -1,0 +1,36 @@
+<h1> Organization Creation </h1>
+  <form method="post">
+    <input type="hidden" name="_csrf_token" value= <%= @csrf %> >
+    Name: <input name="name" type="text"> <br>
+    Select An Organization Structure:
+    <select name="structure" id="structures" oninput="showdetails(event,this)">
+      <%= for structure <- Map.keys(@structures) do %>
+        <option value="<%= structure %>"><%= structure %></option>
+    <% end %>
+    </select>
+    <div id="details">
+      <%= for {structure,roles} <- @structures do %>
+        <div id="<%= structure %>" style="display:none">
+          <h2><%= structure %> </h2>
+          <ul>
+          <%= for {role,perms} <- roles do %>
+            <li><%= role %>:
+              <ul>
+              <%= for perm <- perms do %>
+                <li><%= render_perm(perm) %></li>
+              <% end %>
+              </ul>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+    <input type="submit" name="register" value="Found Organization">
+  </form>
+ <script>
+   function showdetails(event,selector){
+    [...document.getElementById("details").children].map(x => x.style="display:none" )
+    document.getElementById(selector.value).style = ""
+  }
+ </script>

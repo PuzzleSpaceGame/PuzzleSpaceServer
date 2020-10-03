@@ -15,7 +15,7 @@
             <li>
               <%= case  Puzzlespace.User.from_id(@conn.assigns[:auth_uid]) do %>
                 <% {:error, _} -> %> <a href="/login">Login or Register</a>
-                  <% {:ok, x} -> %> Logged in as <%= x.username %> 
+                  <% {:ok, x} -> %> Logged in as <a href="/social/profile"><%= x.username %></a>
               <% end %>
             </li>
             </ul>
@@ -26,11 +26,34 @@
       </section>
     </header>
     <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <p id="info_flash" class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p id="error_flash" class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= @inner_content %>
+    
     </main>
     <script> window.auth_token = "<%= @conn.assigns[:auth_token] %>" </script>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+    <script>
+      console.log("Test")
+      async function formSubmit(event,form){
+        formcontents = {}
+        formData = new FormData(form)
+        for(let [name,value] of formData){
+          formcontents[name] = value
+        }
+        formcontents[event.submitter.name] = event.submitter.value
+        console.log(formcontents)
+        let response = await fetch('/mailbox/api', {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-csrf-token": formcontents["_csrf_token"]
+          },
+          body: JSON.stringify(formcontents)
+        });
+        response.text().then(x => document.getElementById("info_flash").innerHTML = x)
+        form.remove()
+      }
+    </script>
   </body>
 </html>

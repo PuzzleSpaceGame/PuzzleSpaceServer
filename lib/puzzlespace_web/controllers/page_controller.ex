@@ -1,6 +1,7 @@
 defmodule PuzzlespaceWeb.PageController do
   use PuzzlespaceWeb, :controller
   alias Puzzlespace.User
+  alias Puzzlespace.Organization, as: Org
   import Plug.Conn
 
   def index(conn, _params) do
@@ -100,14 +101,20 @@ defmodule PuzzlespaceWeb.PageController do
   
   def list_saves(conn,_params) do
     {:ok, user} = User.from_id(conn.assigns[:auth_uid])
-      saveslots = Puzzlespace.SaveSlot.list(user.user_entity)
-    render(conn,"saves.html",saveslots: saveslots, csrf: Plug.CSRFProtection.get_csrf_token())
+    render(conn,"saves.html",user: user, csrf: Plug.CSRFProtection.get_csrf_token())
   end
 
-  def new_save(conn,%{"slotname"=> name}) do
+  def new_save(conn,%{"slotname"=> name,"entity_id"=> primary_id}) do
     {:ok, user} = User.from_id(conn.assigns[:auth_uid])
-    {:ok, slot} = Puzzlespace.SaveSlot.new_saveslot(user.user_entity,name)
-    load_save(conn, %{ "saveid" => slot.id})
+    primary = Puzzlespace.Repo.get(Puzzlespace.Entity,primary_id)
+    if Puzzlespace.Permissions.granted?(user.user_entity,primary,["puzzle","create_saveslot"]) do
+      {:ok, slot} = Puzzlespace.SaveSlot.new_saveslot(primary,name)
+      load_save(conn, %{ "saveid" => slot.id})
+    else
+      conn
+      |> put_flash(:info, "Permission Denied")
+      |> index(%{})
+    end
   end
 
   def load_save(conn,%{"saveid"=> slotid,"delete"=> _}) do
@@ -156,5 +163,66 @@ defmodule PuzzlespaceWeb.PageController do
     {:ok,slot} = Puzzlespace.SaveSlot.from_id(slotid)
     {:ok,draw} = Puzzlespace.Puzzles.update(user.user_entity,slot,input)
     json(conn,draw)
+  end
+
+  def my_profile(conn,_) do
+    profile(conn,%{"user_id" => conn.assigns[:auth_uid]})
+  end
+
+  def profile(conn,%{"user_id" => uid}) do
+    {:ok, user} = User.from_id(conn.assigns[:auth_uid])
+    {:ok, profile_owner} = User.from_id(uid)
+    render(conn,"profile.html",
+      csrf: Plug.CSRFProtection.get_csrf_token(),
+      user: user,
+      profile_user: profile_owner
+    )
+  end
+
+  def mail_api(conn,%{"Invite" => "Invite", "username" => usrname, "org_id" => oid, "title" => title}) do
+    {:ok, inviter} = User.from_id(conn.assigns[:auth_uid])
+    with {:ok,invitee} <- User.from_name(usrname),
+         {:ok,org} <- Org.from_id(oid),
+         {:ok, _} <- Puzzlespace.OrganizationManagement.invite_player(inviter.user_entity,org.org_entity,invitee.user_entity, title) do
+      text(conn,"Invite Sent")
+    else
+      {:error,reason} -> text(conn,"Invitation failed: #{reason}")
+    end
+  end
+
+  def mail_api(conn,%{"notif_id" => notif_id, "action" => action}) do
+    case Puzzlespace.Notification.handle_action(notif_id,action) do
+      :ok ->
+        text(conn,"Notification Handled")
+      {:ok, _} ->
+        text(conn,"Notification Handled")
+      {:error,reason} ->
+        text(conn,"Error: #{reason}")
+    end
+  end
+
+  def new_team(conn,_) do
+    render(conn,"newteam.html",
+      csrf: Plug.CSRFProtection.get_csrf_token(),
+      structures: Application.get_env(Puzzlespace.Permissions,:structures)
+    )
+  end
+
+  def create_team(conn, %{"name"=> name, "structure"=> structure}) do
+    {:ok, user} = User.from_id(conn.assigns[:auth_uid])
+    {:ok, org} = Puzzlespace.OrganizationManagement.found_org(user.user_entity,name)
+    {:ok, user} = User.from_id(conn.assigns[:auth_uid])
+    {:ok,_} = Puzzlespace.OrganizationManagement.adopt_structure(user.user_entity,org.org_entity,structure)
+    org_profile(conn,%{"org_id" => org.id})
+  end
+
+  def org_profile(conn,%{"org_id" => oid}) do
+    {:ok,org} = Org.from_id(oid)
+    {:ok, user} = User.from_id(conn.assigns[:auth_uid])
+    render(conn,"orgprofile.html",
+      csrf: Plug.CSRFProtection.get_csrf_token(),
+      org: org,
+      user: user
+    )
   end
 end

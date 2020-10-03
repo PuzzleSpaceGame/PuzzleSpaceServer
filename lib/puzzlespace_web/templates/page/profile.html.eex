@@ -1,0 +1,13 @@
+<h1> <%= @profile_user.username %> </h1>
+<%= cond do %>
+  <%= @profile_user.id == @user.id -> %>  
+    Want to log out?
+    <br>
+    <a href="/logout"> Logout this session. </a>
+    <br>
+    <a href="/logout/list"> View all active sessions </a>
+  <%= true -> %><br>
+<% end %>
+<br>
+<%= render_titles(@profile_user.user_entity) %>
+<%= render_mailbox(@user.user_entity,@profile_user.user_entity,@csrf) %>

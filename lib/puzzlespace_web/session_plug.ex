@@ -1,7 +1,7 @@
 defmodule PuzzlespaceWeb.SessionPlug do
   import Plug.Conn
 
-  def init(opts) do
+  def init(_opts) do
     Puzzlespace.SessionHandler
   end
 

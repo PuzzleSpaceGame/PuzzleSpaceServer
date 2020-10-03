@@ -1,0 +1,8 @@
+<%= if Enum.count(@recieves) > 0 do%>
+  <h2> Titles Held: </h2>
+  <%= for rel <- @recieves do render_relationship(rel,:granted) end%>
+<% end %>  
+<%= if Enum.count(@grants) > 0 do %>
+  <h2> Titles Granted: </h2>
+  <%= for rel <- @grants do render_relationship(rel,:grants) end%>
+<% end %>

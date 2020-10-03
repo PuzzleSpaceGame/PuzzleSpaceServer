@@ -1,23 +1,2 @@
-<h1> Your Saved Games </h1>
-
-<table>
-  <%= for slot <- @saveslots do %> 
-    <form action="/puzzle/load" method="post">
-      <input type="text" name="saveid" value="<%= slot.id %>" style='display:none'>
-      <input type="hidden" name="_csrf_token" value="<%= @csrf %>">
-      <tr>
-        <td> <input type="submit" value="Delete" name="delete"> </td>
-        <td><%= Puzzlespace.SaveSlot.to_string(slot) %></td>
-        <td> <input type="submit" value="Load" name="load"></td>
-      </tr>
-    </form>
-  <% end %>
-  <form action="/puzzle/new_save" method="post">
-    <input type="hidden" name="_csrf_token" value=<%= @csrf %> >
-    <tr>
-      <td> </td>
-      <td><input type="text" placeholder="Name Your Saveslot" name="slotname"></td>
-      <td> <input type="submit" value="New" name="new"></td>
-    </tr>
-  </form>
-</table>
+<h1> Saveslots </h1>
+<%= render_saves(@user.user_entity,@csrf) %>

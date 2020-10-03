@@ -1,0 +1,8 @@
+<div>
+<%= case @direction do %>
+  <% :granted -> %>
+    <%= @title %> of <a href="<%= Puzzlespace.EntityBacked.url(@ebs) %>"><%= Puzzlespace.EntityBacked.name(@ebs) %></a>
+  <% :grants -> %>
+    <%= @title %> : <a href="<%= Puzzlespace.EntityBacked.url(@ebs) %>"><%= Puzzlespace.EntityBacked.name(@ebs) %></a>
+  <% end %>
+</div>

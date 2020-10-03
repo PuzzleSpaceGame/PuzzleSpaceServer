@@ -1,0 +1,35 @@
+<div class=message>
+<form method=="POST" onsubmit="formSubmit(event,this); return false">
+  <input type="hidden" name="_csrf_token" value="<%= @csrf %>">
+  <input type="hidden" name="notif_id" value="<%= @id %>">
+  <span>
+    <div style="text-align:left">
+      from: <b> <%= @from.username %> </b> to: <b> <%= @to.username %></b>
+    </div>
+    <div style="text-align:right">
+      <%= case Puzzlespace.Permissions.request_permission(@viewer,@owner,["mailbox","delete",@type]) do %>
+        <% :granted -> %>
+          <input type="submit" name="action" value="Dismiss">
+        <% {:denied,_} -> %>
+      <% end %>
+    </div>
+  </span>
+  <br>
+  <span>
+    <div style="text-align:left">
+      <%= Puzzlespace.Mailbox.Message.body_text(@message) %>
+    </div>
+    <div style="text-align:right">
+      <%= case Puzzlespace.Permissions.request_permission(@viewer,@owner,["mailbox","respond",@type]) do %>
+        <% :granted -> %> 
+        <%= if @owner.id != @from.entity_id do %> 
+          <%= for button <- Puzzlespace.Mailbox.Message.buttons(@message) do %>
+            <input type="submit" value="<%=button%>" name="action">
+          <% end %>
+        <% end %>
+      <% _ -> %>
+      <% end %>
+    </div>
+  </span>
+</form>
+</div>

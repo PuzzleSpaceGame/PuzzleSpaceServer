@@ -1,7 +1,4 @@
 defmodule STPuzzleCoordinator do
-  import RPCCoordinator
-
-  
 
   #Client API
   def child_spec(_) do

@@ -74,7 +74,6 @@ defmodule STPuzzleCoordinator do
     commands = Enum.join(commands,"~")
     {:ok,%{"draw"=>draw,"gamestate"=>gamestate,"status"=>status}} = 
       GenServer.call({:global,__MODULE__},{tag,"BATCHX~#{gamestate}~#{count}~#{commands}"},:infinity)
-      |> Debug.write_to_file("debug.txt")
       |>Jason.decode
     {draw,gamestate,status}
   end

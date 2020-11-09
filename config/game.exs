@@ -1,12 +1,6 @@
 import Config
 
 config STPuzzleCoordinator, 
-  connopts: [ 
-    host: "192.168.1.142",
-    port: 5672,
-    username: "psserver",
-    password: "fizzbuzz",
-  ],
   queues: [
     bridges: "stbridges",
     unruly: "stunruly",

@@ -82,4 +82,4 @@ config STPuzzleCoordinator,
     port: 5672,
     username: "psserver",
     password: "fizzbuzz",
-  ],
+  ]

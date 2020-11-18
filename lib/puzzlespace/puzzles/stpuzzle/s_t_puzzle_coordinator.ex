@@ -141,6 +141,7 @@ defmodule STPuzzleCoordinator do
     x
   end
 
+
   defmodule ConfigHandler do
     use GenServer
     alias STPuzzleCoordinator.ConfigHandler, as: ConfigHandler

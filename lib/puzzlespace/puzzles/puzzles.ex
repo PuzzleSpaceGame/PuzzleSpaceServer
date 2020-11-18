@@ -2,11 +2,11 @@ defmodule Puzzlespace.Puzzles do
   use Puzzlespace.Permissions
   alias Puzzlespace.SaveSlot
   alias Puzzlespace.Completion
+  alias Puzzlespace.STAssetHandler, as: STImpl
 
   def newgame(entity,saveslot,tag,params \\ %{}) do
     if_permitted(entity, saveslot.owner, ["puzzle","create_saveslot"]) do
-      pcord = STPuzzleCoordinator
-      {draw,gamestate} = pcord.new_game(String.to_existing_atom(tag),params)
+      {draw,gamestate} = STImpl.new_game(String.to_existing_atom(tag),params)
       SaveSlot.save(saveslot,tag,gamestate,0)
       draw
     end
@@ -14,9 +14,8 @@ defmodule Puzzlespace.Puzzles do
 
   def loadgame(entity,saveslot) do
     if_permitted(entity, saveslot.owner, ["puzzle","access_saveslot",saveslot]) do
-      pcord = STPuzzleCoordinator
       {puzzle,gamestate} = SaveSlot.load(saveslot)
-      {draw,gamestate,status} = pcord.redraw(String.to_existing_atom(saveslot.puzzle),gamestate)
+      {draw,gamestate,status} = STImpl.redraw(String.to_existing_atom(saveslot.puzzle),gamestate)
       Completion.register_if_won(saveslot,status)
       SaveSlot.save(saveslot,puzzle,gamestate,status)
       case status do
@@ -29,9 +28,8 @@ defmodule Puzzlespace.Puzzles do
 
   def update(entity,saveslot,input) do
     if_permitted(entity, saveslot.owner, ["puzzle","access_saveslot"]) do
-      pcord = STPuzzleCoordinator
       {puzzle,gamestate} = SaveSlot.load(saveslot)
-      {draw,gamestate,status} = pcord.update(String.to_existing_atom(saveslot.puzzle),gamestate,input)
+      {draw,gamestate,status} = STImpl.update(String.to_existing_atom(saveslot.puzzle),gamestate,input)
       Completion.register_if_won(saveslot,status)
       SaveSlot.save(saveslot,puzzle,gamestate,status)
       case status do
@@ -43,25 +41,21 @@ defmodule Puzzlespace.Puzzles do
   end
 
   def config(puzzle) do
-    pcord = STPuzzleCoordinator
-    pcord.config(String.to_existing_atom(puzzle))
+    STImpl.config(String.to_existing_atom(puzzle))
   end
 
   def list_puzzles() do
-    pcord = STPuzzleCoordinator
-    pcord.list_puzzles()
+    STImpl.list_puzzles()
     |> Enum.map(&Atom.to_string/1)
   end
 
   def list_colors(puzzle) do
-    pcord = STPuzzleCoordinator
-    pcord.list_colors(String.to_existing_atom(puzzle))
+    STImpl.list_colors(String.to_existing_atom(puzzle))
   end
 
   def game_desc(saveslot) do
-    pcord = STPuzzleCoordinator
     {puzzle,gamestate} = SaveSlot.load(saveslot)
-    desc = pcord.game_desc(String.to_existing_atom(puzzle),gamestate)
+    desc = STImpl.game_desc(String.to_existing_atom(puzzle),gamestate)
     "#{puzzle}: #{desc}"
   end
 end

@@ -1,6 +1,5 @@
 defmodule Puzzlespace.Permissions do
   alias Puzzlespace.Entity
-  alias Puzzlespace.Relationship
 
   defmacro if_permitted(requester, owner, permission, do: block) do
     quote do
@@ -49,7 +48,7 @@ defmodule Puzzlespace.Permissions do
 
   defp permits(["*" | _], _), do: true
   defp permits([x|_],[y|_]) when x != y, do: false
-  defp permits([x|xt],[y|yt]), do: permits(xt,yt)
+  defp permits([_|xt],[_|yt]), do: permits(xt,yt)
   defp permits(_,[]), do: true
   defp permits(_,_), do: false
 

@@ -12,7 +12,7 @@ defmodule Puzzlespace.Application do
       Puzzlespace.Repo,
       # Start the endpoint when the application starts
       PuzzlespaceWeb.Endpoint,
-      STPuzzleCoordinator,
+      STAssetHandler,
       Puzzlespace.SessionHandler,
       {Phoenix.PubSub, [name: Puzzlespace.PubSub, adapter: Phoenix.PubSub.PG2]}
       # Starts a worker by calling: Puzzlespace.Worker.start_link(arg)

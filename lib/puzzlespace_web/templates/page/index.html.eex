@@ -3,7 +3,7 @@
   <p>A game that exists pretty much purely as a tech demo</p>
   <%= case  Puzzlespace.User.from_id(@conn.assigns[:auth_uid]) do %>
     <% {:error, _} -> %> Want to play? <a href="/login">Login or Register</a> now
-      <% {:ok, x} -> %> Ready to play?  <a href="/puzzle/saves">See your saveslots or start a new game</a>
+      <% {:ok, _} -> %> Ready to play?  <a href="/puzzle/saves">See your saveslots or start a new game</a>
         <br> Or <a href="/social/team/new">Form an organization, and play with your friends!</a>
   <% end %>
 </section>

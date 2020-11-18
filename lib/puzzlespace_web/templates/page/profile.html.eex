@@ -6,7 +6,7 @@
     <a href="/logout"> Logout this session. </a>
     <br>
     <a href="/logout/list"> View all active sessions </a>
-  <%= true -> %><br>
+  <% true -> %><br>
 <% end %>
 <br>
 <%= render_titles(@profile_user.user_entity) %>

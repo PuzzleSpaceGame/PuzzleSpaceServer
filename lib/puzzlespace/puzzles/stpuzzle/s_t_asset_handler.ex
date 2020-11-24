@@ -1,24 +1,35 @@
 defmodule Puzzlespace.STAssetHandler do 
   alias Puzzlespace.RemoteAssetHandler, as: RAH
+  
+  def child_spec(_) do
+    %{
+      id: STAssetHandler,
+      start: {Puzzlespace.STAssetHandler, :start_link, []}
+    }
+  end
 
   def start_link() do
     connopts = Application.get_env(STAssetHandler,:connopts)
     asset_list = Application.get_env(STAssetHandler,:asset_list)
-    RAH.start_link(__MODULE__,connopts,asset_list)
+    RAH.start_link(STAssetHandler,connopts,asset_list)
   end
 
   def list_colors(tag) do
-    {:ok,%{colors: colors}} = RAH.get_auxilliary_info(STAssetHandler,tag)
+    %{colors: colors} = RAH.get_auxilliary_info(STAssetHandler,tag)
     colors
   end
   
   def list_puzzles() do
+    RAH.online_assets(STAssetHandler)
+  end
+
+  def puzzle_status() do
     RAH.list_assets(STAssetHandler)
   end
 
   def config(tag) do
     RAH.get_auxilliary_info(STAssetHandler,tag)
-    |> assume_ok()
+    |> Map.get(:cfg)
   end
 
   def new_game(tag,partial_config \\ %{}) do
@@ -51,6 +62,7 @@ defmodule Puzzlespace.STAssetHandler do
       RAH.rpc_call(STAssetHandler,tag,"BATCHX~#{gamestate}~#{count}~#{commands}")
       |> assume_ok()
       |> Jason.decode()
+      |> assume_ok()
     {draw,gamestate,status}
   end
   
@@ -117,8 +129,8 @@ defmodule Puzzlespace.STAssetHandler do
   end
   
   defp config_msg(tag,partial \\ %{}) do
-    {:ok,%{cfg: opts}} = RAH.get_auxilliary_info(STAssetHandler,tag)
-    opts
+    %{cfg: opts} = RAH.get_auxilliary_info(STAssetHandler,tag)
+    opts = opts
     |> Enum.to_list()
     |> Enum.sort_by(fn {_,x} -> x["idx"] end)
     |> Enum.map(
@@ -145,6 +157,7 @@ defmodule Puzzlespace.STAssetHandler do
     use GenServer
     use Puzzlespace.RemoteAsset
 
+    @impl true
     def ping(pid) when is_pid(pid) do
       case GenServer.call(pid,:ping) do
         {:ok,:down} -> :down
@@ -154,10 +167,11 @@ defmodule Puzzlespace.STAssetHandler do
     end
     def ping(tag) when is_atom(tag), do: ping(tag_to_pid(tag))
 
+    @impl true
     def auxilliary_info(pid) when is_pid(pid)do
       case GenServer.call(pid,:aux_info) do
-        {:ok,:cache_miss} -> :cache_miss
-        {:ok,info} -> info
+        :cache_miss -> :cache_miss
+        info -> info
         {:error,_} -> :down
       end
     end
@@ -179,9 +193,16 @@ defmodule Puzzlespace.STAssetHandler do
     end
     def queue(tag) when is_atom(tag), do: queue(tag_to_pid(tag))
 
+    def tag(pid) when is_pid(pid) do
+      case GenServer.call(pid,:tag) do
+        {:error, _} -> :down
+        tag -> tag
+      end
+    end
+
+
     def tag_to_pid(tag) do
-      [{asset_reg,nil}] = Registry.lookup(STAssetHandler,AssetRegistry)
-      [{asset,_}] = Registry.lookup(asset_reg,tag)
+      [{asset,_}] = Registry.lookup(STAssetHandler,{:asset,tag})
       asset
     end
 
@@ -189,51 +210,66 @@ defmodule Puzzlespace.STAssetHandler do
       "rpc_response"
     end
 
+    def start_link(args,name) do
+      GenServer.start_link(__MODULE__,args, name: name)
+    end
+    
+    @impl true
     def init([tag,queue,defaults]) do
-      Kernel.send(self(),{:update,0})
+      Kernel.send(self(),{:update,0,0})
       {:ok,{tag,:down,queue,%{defaults: defaults}}}
     end
 
-    def handle_call(:ping, from, {tag,status,queue,aux_info}) do
-      asset = self()
-      _task = Task.async(
-        fn -> 
-          {time,res} = :timer.tc(
-            fn -> RAH.rpc_call(STAssetHandler,tag,"PINGXX") end
-          )
-          response = case res do
-            {:ok,_} -> 
-              GenServer.cast(asset,{:status,:up})
-              {:ok,time}
-            x -> 
-              GenServer.cast(asset,{:status,:down})
-              x
-          end
-          GenServer.reply(from,response)
-        end
-      )
-      {:noreply,{tag,status,queue,aux_info}}
+    @impl true
+    def handle_call(:ping, _from, {_tag,_status,_queue,%{ping: ping}} = state) do
+      {:reply,{:ok,ping},state}
+    end
+    def handle_call(:ping,_,state) do
+      {:reply,{:ok,:down},state}
     end
 
+    @impl true
     def handle_call(:aux_info,_from,{_tag,_status,_queue,aux_info} = state) do
       {:reply,aux_info,state}
     end
 
+    @impl true
     def handle_call(:queue,_from,{_tag,_status,queue,_aux_info} = state) do
       {:reply,queue,state}
     end
 
+    @impl true
     def handle_call(:status,_from,{_tag,status,_queue,_aux_info} = state) do
       {:reply,status,state}
     end
 
-    def handle_cast({:status,new_status},{tag,_old_status,queue,aux_info}) do
-      {:noreply,{tag,new_status,queue,aux_info}}
+    @impl true
+    def handle_call(:tag,_from,{tag,_status,_queue,_aux_info} = state) do
+      {:reply,tag,state}
     end
 
+    @impl true
+    def handle_cast({:status,:up},{tag,:down,queue,%{cfg: %{}, colors: [_|_], ping: _}=aux_info}) do
+      {:noreply,{tag,:up,queue,aux_info}}
+    end
+    def handle_cast({:status,:down},{tag,:up,queue,aux_info}) do
+      IO.puts "STATUS: #{tag} down"
+      {:noreply,{tag,:down,queue,aux_info}}
+    end
+    def handle_cast({:status,:up},state) do
+      IO.puts "NO STATUS CHANGE: INTENDED: up #{inspect(state)}"
+      {:noreply,state}
+    end
+    def handle_cast({:status,_},state) do
+      {:noreply,state}
+    end
+
+
+    @impl true
     def handle_cast({:aux_info,:cache_miss},{tag,status,queue,info}) do
       {:noreply,{tag,status,queue,info}}
     end
+    @impl true
     def handle_cast({:aux_info,new_info},{tag,status,queue,old_info}) do 
       updated_info = case old_info do
         %{} = info -> info
@@ -243,11 +279,8 @@ defmodule Puzzlespace.STAssetHandler do
       {:noreply,{tag,status,queue,updated_info}}
     end
 
-    def handle_info({:update,0},{tag,_status,_queue,aux_info} = state) do
-      asset = self()
-      _cfg_task = Task.async(
-        fn -> 
-          {:ok,rawcfg} = RAH.rpc_call(STAssetHandler,tag,"GETCFG")      
+    def update_cfg(asset,{tag,_status,_queue,aux_info}) do
+      with {:ok,rawcfg} <- RAH.rpc_call(STAssetHandler,tag,"GETCFG") do
           cfg = rawcfg
           |> Jason.decode() 
           |> case do
@@ -280,39 +313,114 @@ defmodule Puzzlespace.STAssetHandler do
                   end
                 end)
               |> Map.new(fn x -> {x["name"],x} end)
-            _ -> :cache_miss
+            err -> 
+              IO.inspect(err)
+              :cache_miss
           end
           case cfg do
-            :cache_miss -> GenServer.cast(asset,{:aux_info,:cache_miss})
-            _ -> GenServer.cast(asset,{:aux_info,%{cfg: cfg}})
+            :cache_miss -> 
+              :error
+            _ -> 
+              GenServer.cast(asset,{:aux_info,%{cfg: cfg}})
+              :ok
           end
+      else 
+        err -> 
+          IO.inspect err
+          GenServer.cast(asset,{:status,:down})
+          :error
+      end
+    end
+    
+    def update_colors(asset,{tag,_status,_queue,aux_info}) do
+      with {:ok,rawcolors} <- RAH.rpc_call(STAssetHandler,tag,"COLORS") do
+        colors = rawcolors
+        |> Jason.decode()
+        |> case do
+          {:ok,%{"colours" => colors}} ->
+            colors
+          _ -> :cache_miss
         end
-      )
+        case colors do
+          :cache_miss -> 
+            :error
+          _ -> 
+            GenServer.cast(asset,{:aux_info,%{colors: colors}})
+            :ok
+        end
+      else
+        err ->
+          IO.inspect err
+          GenServer.cast(asset,{:status,:down})
+          :error
+      end
+    end
 
-      _color_task = Task.async(
-        fn -> 
-          {:ok,rawcolors} = RAH.rpc_call(STAssetHandler,tag,"COLORS")
-          colors = rawcolors
-          |> Jason.decode()
-          |> case do
-            {:ok,%{"colours" => colors}} ->
-              colors
-            _ -> :cache_miss
-          end
-          case colors do
-            :cache_miss -> GenServer.cast(asset,{:aux_info,:cache_miss})
-            _ -> GenServer.cast(asset,{:aux_info,%{colors: colors}})
-          end
-        end
+    def update_ping(asset,{tag,_status,_queue,_aux_info}) do
+      {time,res} = :timer.tc(
+        fn -> RAH.rpc_call(STAssetHandler,tag,"PINGXX") end
       )
-      ping(self())
-      Process.send_after(self(),{:update,12},1000*60*5)
+      response = case res do
+        {:ok,_} -> 
+          GenServer.cast(asset,{:aux_info,%{ping: time}})
+          :ok
+        x -> 
+          GenServer.cast(asset,{:status,:down})
+          :error
+      end
+    end
+
+    @impl true
+    def handle_info({:update,0 = _counter, delay} = msg,state) do
+      asset = self()
+      Task.start_link(fn -> 
+        cfg_task = Task.async(fn -> update_cfg(asset,state) end)
+        color_task = Task.async(fn -> update_colors(asset,state) end)
+        ping_task = Task.async(fn -> update_ping(asset,state) end)
+        case {
+          Task.await(cfg_task,:infinity),
+          Task.await(color_task,:infinity),
+          Task.await(ping_task,:infinity)
+        } |> IO.inspect do
+          {:ok,:ok,:ok} -> 
+            GenServer.cast(asset,{:status,:up})
+          _ -> GenServer.cast(asset,{:status,:down})
+        end
+        Kernel.send(asset,{:resolve,{:update,0,delay}})
+      end)
       {:noreply,state}
     end
-    def handle_info({:update,counter},state) do
-      ping(self())
-      Process.send_after(self(),{:update,counter - 1},1000*60*5)
+    @impl true
+    def handle_info({:update,counter,delay},state) do
+      asset = self()
+      Task.start_link(fn -> 
+        ping_task = Task.async(fn -> update_ping(asset,state) end)
+        Task.await(ping_task)
+        Kernel.send(asset,{:resolve,{:update,counter,delay}})
+      end) 
       {:noreply,state}
-    end 
+    end
+    
+    @healthy_delay 1000*60*5
+    @retry_delay 1000*30
+    @down_delay 1000*60*10
+
+    def handle_info({:resolve,{:update,0,_}},{_tag,:up,_queue,%{cfg: %{}, colors: [_|_], ping: _}} = state) do
+      Process.send_after(self(),{:update,12,0},@healthy_delay)
+      {:noreply,state}
+    end
+    def handle_info({:resolve,{:update,counter,_}},{_tag,:up,_queue,%{cfg: %{}, colors: [_|_], ping: _}} = state) do
+      Process.send_after(self(),{:update,counter - 1,0},@healthy_delay)
+      {:noreply,state}
+    end
+    def handle_info({:resolve,{:update,0,0}},state) do
+      Process.send_after(self(),{:update,0,1},@retry_delay)
+      {:noreply,state}
+    end
+    def handle_info({:resolve,{:update,_,retries}}, state) do
+      Process.send_after(self(),{:update,0,retries+1},@down_delay)
+      {:noreply,state}
+    end
+
   end
 end

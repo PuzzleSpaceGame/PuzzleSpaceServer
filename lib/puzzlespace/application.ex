@@ -6,13 +6,14 @@ defmodule Puzzlespace.Application do
   use Application
 
   def start(_type, _args) do
+
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
       Puzzlespace.Repo,
       # Start the endpoint when the application starts
       PuzzlespaceWeb.Endpoint,
-      STAssetHandler,
+      {Puzzlespace.STAssetHandler, []},
       Puzzlespace.SessionHandler,
       {Phoenix.PubSub, [name: Puzzlespace.PubSub, adapter: Phoenix.PubSub.PG2]}
       # Starts a worker by calling: Puzzlespace.Worker.start_link(arg)

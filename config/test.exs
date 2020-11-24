@@ -1,6 +1,7 @@
 import Config
 
 # Configure your database
+import_config "dev.exs"
 config :puzzlespace, Puzzlespace.Repo,
   username: "postgres",
   password: "postgres",

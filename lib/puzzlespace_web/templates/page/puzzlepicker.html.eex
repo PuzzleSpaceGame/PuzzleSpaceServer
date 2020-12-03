@@ -60,7 +60,10 @@
        if(content.type == "boolean"){
          let out = document.createElement("input");
          out.type = "checkbox";
-         out.value = content.default
+         out.value = true
+         if(content.default == "true"){
+            out.checked = true
+         }
          out.id = label
          out.name = label
          let name = document.createElement("label");

@@ -129,6 +129,7 @@ defmodule Puzzlespace.STAssetHandler do
   end
   
   defp config_msg(tag,partial \\ %{}) do
+    IO.inspect partial
     %{cfg: opts} = RAH.get_auxilliary_info(STAssetHandler,tag)
     opts = opts
     |> Enum.to_list()
@@ -143,6 +144,8 @@ defmodule Puzzlespace.STAssetHandler do
             case val do
               true -> 1
               false -> 0
+              "true" -> 1
+              "false" -> 0
               _ -> val
             end
         end

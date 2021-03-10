@@ -1,4 +1,5 @@
 <div>
+  <p>Either enter your login details and login, or your desired login details and register</p>
   <form method="post">
     Username: <input name="username" type="text"> <br>
     Password: <input name="userpass" type="password"> <br>

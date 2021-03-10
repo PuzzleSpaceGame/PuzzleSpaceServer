@@ -42,4 +42,5 @@ defmodule PuzzlespaceWeb.PageView do
     |> List.insert_at(0,usr_ent)
     |> Enum.map(fn owner -> PuzzlespaceWeb.ComponentView.render_saveslots(usr_ent,owner,csrf) end)
   end
+
 end

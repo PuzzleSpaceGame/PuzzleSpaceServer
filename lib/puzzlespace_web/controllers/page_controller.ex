@@ -155,7 +155,7 @@ defmodule PuzzlespaceWeb.PageController do
     {:ok,json} = Jason.encode(draw,pretty: true)
     {:ok,slot} = Puzzlespace.SaveSlot.from_id(slotid)
     {:ok,colors} = %{"colours" => Puzzlespace.Puzzles.list_colors(slot.puzzle)} |> Jason.encode()
-    render(conn,"puzzleplayer.html", csrf: Plug.CSRFProtection.get_csrf_token(), draw: json, slotid: slot.id, colours: colors)
+    render(conn,"puzzleplayer.html", csrf: Plug.CSRFProtection.get_csrf_token(), draw: json, slot: slot, colours: colors)
   end
 
   def update(conn,%{"user_input" => input,"slotid"=>slotid}) do

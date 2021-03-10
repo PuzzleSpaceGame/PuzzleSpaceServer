@@ -1,5 +1,8 @@
 <h1> Your Active Sessions </h1>
-
+<p> 
+  This is a list of all access tokens currently issued to your account. <br>
+  There's probably one for each browser on each device you've logged in on <br>
+</p>
 <form action="/logout" method="post">
   <input type="hidden" name="_csrf_token" value="<%= @csrf %>">
   <table>

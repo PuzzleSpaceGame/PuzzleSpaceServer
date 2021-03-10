@@ -8,6 +8,7 @@
       <option value="<%= puzzle %>"><%= puzzle %></option>
     <% end %>
   </select>
+  <div id="desc"></div>
   <div id="options"></div>
   <br>
   <input id="play" type="hidden" value="Play">
@@ -16,9 +17,35 @@
    const cfgstring = (`<%=raw @configs %>`)
    console.log(cfgstring);
    const configs = JSON.parse(cfgstring)["configs"];
+    const descs = {
+         bridges: "Connect all the islands with a network of bridges.",
+         unruly: "Fill in the black and white grid to avoid runs of three.",
+         loopy: "Draw a single closed loop, given clues about number of adjacent edges.",
+         dominosa: "Tile the rectangle with a full set of dominoes.",
+         filling: "Mark every square with the area of its containing region.",
+         keen: "Complete the latin square in accordance with the arithmetic clues.",
+         mines: "It's minesweeper.",
+         net: "Rotate each tile to reassemble the network.",
+         netslide: "Slide a row at a time to reassemble the network.",
+         palisade: "Divide the grid into equal-sized areas in accordance with the clues.",
+         pattern: "Divide the grid into equal-sized areas in accordance with the clues. Also known as picross, or nonagrams",
+         pearl: "Draw a single closed loop, given clues about corner and straight squares.",
+         range: "Place black squares to limit the visible distance from each numbered cell.",
+         rectangles: "Divide the grid into rectangles with areas equal to the numbers.",
+         singles: "Black out the right set of duplicate numbers.",
+         slant: "Draw a maze of slanting lines that matches the clues.",
+         solo: "It's sudoku, and some variants",
+         tents: "Place a tent next to each tree.",
+         towers: "Complete the latin square of towers in accordance with the clues.",
+         tracks: "Fill in the railway track according to the clues.",
+         undead: "Place ghosts, vampires and zombies so that the right numbers of them can be seen in mirrors."
+      }
+
+
    function showopts(){
      document.getElementById("play").type = "hidden";
      choice = configs[document.getElementById("puzzles").value];
+     document.getElementById("desc").innerHTML = descs[document.getElementById("puzzles").value]
      form = document.getElementById("options");
      form.innerHTML = '';
      Object.entries(choice).sort(function(a,b){

@@ -1,8 +1,33 @@
 <h1 id="game_status"></h1>
 <canvas id="game"></canvas>
+<div id="howto">
+  <%=case String.to_existing_atom(@slot.puzzle) do
+    :loopy -> "Left or right click to cycle forward or backward respectively through: Unknown -> Edge -> No Edge"
+    :bridges -> "Click and drag between islands to make bridges"
+    :unruly -> "Left or right click to cycle through unknown, black, and white"
+    :dominosa -> "Click and drag between numbers to make dominos"
+    :filling -> "Click and hold on a square, then type a number"
+    :keen -> "Click and hold on a square, then type a number"
+    :mines -> "Left click to reveal a square, right click to flag a mine"
+    :net -> "Right or left click to spin a square clockwise/counter clockwise"
+    :netslide -> "Click on the arrows to shift a row or column"
+    :palisade -> "Left or right click on edges to cycle forward or back through unknown, edge, and no edge"
+    :pattern -> "Right click to mark empty, Left click to mark full"
+    :pearl -> "Click and drag to create path segments"
+    :range -> "Click to cycle through unknow, block, empty"
+    :rectangles -> "Left or Right click on edges to cycle through unknown, knedge, or no edge"
+    :singles -> "Left click to mark a block, Right click to circle as confirmed"
+    :slant -> ""
+    :solo -> "Click and hold, then type in a number and release"
+    :tents -> "Left click to mark a tent, Right click to mark empty"
+    :towers -> "Click and hold, then type in a number and release"
+    :tracks -> "Left click of edges or squares to mark rails. Right click to mark empty"
+    :undead -> "Click"
+end%>
+</div>
 <div id="instructions" style="display: none"><%= @draw %></div>
 <div id="csrf" style="display: none"><%= @csrf %></div>
-<div id="slotid" style="display: none"><%= @slotid %></div>
+<div id="slotid" style="display: none"><%= @slot.id%></div>
 <div id="colours" style="display: none"><%= @colours %></div>
 <script>
   const canvas = document.getElementById("game");

@@ -1,8 +1,14 @@
 <h1> Organization Creation </h1>
   <form method="post">
     <input type="hidden" name="_csrf_token" value= <%= @csrf %> >
-    Name: <input name="name" type="text"> <br>
-    Select An Organization Structure:
+    Choose a name for your organization: <input name="name" type="text"> <br>
+    <p>
+    Select An Organization Structure: <br> 
+    This describes the roles you can assign to members.<br>
+    Roles define what permissions your organization grants members. <br>
+    Management permissions allow the recruitment of new members. These are reccomended for people you trust. <br>
+    Puzzle permissions grant access to the creation and playing of puzzles controlled by the organization. Most members probably should get these.<br>
+    </p>
     <select name="structure" id="structures" oninput="showdetails(event,this)">
       <%= for structure <- Map.keys(@structures) do %>
         <option value="<%= structure %>"><%= structure %></option>
